@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */; };
+		9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
+		9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */; };
+		9E0C9B7814ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */; };
+		9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7914ECB5CA00FF4C8D /* main.m */; };
+		9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */; };
+		9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */; };
+		9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */; };
+		9E0C9B8714ECB5CA00FF4C8D /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */; };
+		9E0C9B8A14ECB5CA00FF4C8D /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */; };
+		9E0C9B8D14ECB5CA00FF4C8D /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */; };
+		9E0C9B9514ECB5CA00FF4C8D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B9414ECB5CA00FF4C8D /* SenTestingKit.framework */; };
+		9E0C9B9614ECB5CA00FF4C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */; };
+		9E0C9B9714ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
+		9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */; };
+		9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E0C9B9814ECB5CA00FF4C8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C9B6014ECB5CA00FF4C8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E0C9B6814ECB5CA00FF4C8D;
+			remoteInfo = LazyAlarm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9E0C9B6914ECB5CA00FF4C8D /* LazyAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */ = {isa = PBXFileReference; path = "LazyAlarm-Info.plist"; sourceTree = "<group>"; };
+		9E0C9B7714ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E0C9B7914ECB5CA00FF4C8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9E0C9B7B14ECB5CA00FF4C8D /* LazyAlarm-Prefix.pch */ = {isa = PBXFileReference; path = "LazyAlarm-Prefix.pch"; sourceTree = "<group>"; };
+		9E0C9B7C14ECB5CA00FF4C8D /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9E0C9B7F14ECB5CA00FF4C8D /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		9E0C9B8614ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
+		9E0C9B8914ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
+		9E0C9B8C14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
+		9E0C9B9314ECB5CA00FF4C8D /* LazyAlarmTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyAlarmTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0C9B9414ECB5CA00FF4C8D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9E0C9B9C14ECB5CA00FF4C8D /* LazyAlarmTests-Info.plist */ = {isa = PBXFileReference; path = "LazyAlarmTests-Info.plist"; sourceTree = "<group>"; };
+		9E0C9B9E14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */ = {isa = PBXFileReference; path = LazyAlarmTests.h; sourceTree = "<group>"; };
+		9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyAlarmTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E0C9B6614ECB5CA00FF4C8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */,
+				9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */,
+				9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E0C9B8F14ECB5CA00FF4C8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9B9514ECB5CA00FF4C8D /* SenTestingKit.framework in Frameworks */,
+				9E0C9B9614ECB5CA00FF4C8D /* UIKit.framework in Frameworks */,
+				9E0C9B9714ECB5CA00FF4C8D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E0C9B5E14ECB5CA00FF4C8D = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */,
+				9E0C9B9A14ECB5CA00FF4C8D /* LazyAlarmTests */,
+				9E0C9B6C14ECB5CA00FF4C8D /* Frameworks */,
+				9E0C9B6A14ECB5CA00FF4C8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E0C9B6A14ECB5CA00FF4C8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B6914ECB5CA00FF4C8D /* LazyAlarm.app */,
+				9E0C9B9314ECB5CA00FF4C8D /* LazyAlarmTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E0C9B6C14ECB5CA00FF4C8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */,
+				9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */,
+				9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */,
+				9E0C9B9414ECB5CA00FF4C8D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B7C14ECB5CA00FF4C8D /* AppDelegate.h */,
+				9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */,
+				9E0C9B7F14ECB5CA00FF4C8D /* MainViewController.h */,
+				9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */,
+				9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */,
+				9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */,
+				9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */,
+				9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */,
+				9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */,
+				9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */,
+			);
+			path = LazyAlarm;
+			sourceTree = "<group>";
+		};
+		9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */,
+				9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */,
+				9E0C9B7914ECB5CA00FF4C8D /* main.m */,
+				9E0C9B7B14ECB5CA00FF4C8D /* LazyAlarm-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E0C9B9A14ECB5CA00FF4C8D /* LazyAlarmTests */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */,
+				9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */,
+				9E0C9B9B14ECB5CA00FF4C8D /* Supporting Files */,
+			);
+			path = LazyAlarmTests;
+			sourceTree = "<group>";
+		};
+		9E0C9B9B14ECB5CA00FF4C8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C9B9C14ECB5CA00FF4C8D /* LazyAlarmTests-Info.plist */,
+				9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E0C9B6814ECB5CA00FF4C8D /* LazyAlarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E0C9BA514ECB5CA00FF4C8D /* Build configuration list for PBXNativeTarget "LazyAlarm" */;
+			buildPhases = (
+				9E0C9B6514ECB5CA00FF4C8D /* Sources */,
+				9E0C9B6614ECB5CA00FF4C8D /* Frameworks */,
+				9E0C9B6714ECB5CA00FF4C8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LazyAlarm;
+			productName = LazyAlarm;
+			productReference = 9E0C9B6914ECB5CA00FF4C8D /* LazyAlarm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E0C9B9214ECB5CA00FF4C8D /* LazyAlarmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E0C9BA814ECB5CA00FF4C8D /* Build configuration list for PBXNativeTarget "LazyAlarmTests" */;
+			buildPhases = (
+				9E0C9B8E14ECB5CA00FF4C8D /* Sources */,
+				9E0C9B8F14ECB5CA00FF4C8D /* Frameworks */,
+				9E0C9B9014ECB5CA00FF4C8D /* Resources */,
+				9E0C9B9114ECB5CA00FF4C8D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E0C9B9914ECB5CA00FF4C8D /* PBXTargetDependency */,
+			);
+			name = LazyAlarmTests;
+			productName = LazyAlarmTests;
+			productReference = 9E0C9B9314ECB5CA00FF4C8D /* LazyAlarmTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E0C9B6014ECB5CA00FF4C8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 9E0C9B6314ECB5CA00FF4C8D /* Build configuration list for PBXProject "LazyAlarm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9E0C9B5E14ECB5CA00FF4C8D;
+			productRefGroup = 9E0C9B6A14ECB5CA00FF4C8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E0C9B6814ECB5CA00FF4C8D /* LazyAlarm */,
+				9E0C9B9214ECB5CA00FF4C8D /* LazyAlarmTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E0C9B6714ECB5CA00FF4C8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9B7814ECB5CA00FF4C8D /* InfoPlist.strings in Resources */,
+				9E0C9B8714ECB5CA00FF4C8D /* MainViewController_iPhone.xib in Resources */,
+				9E0C9B8A14ECB5CA00FF4C8D /* MainViewController_iPad.xib in Resources */,
+				9E0C9B8D14ECB5CA00FF4C8D /* FlipsideViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E0C9B9014ECB5CA00FF4C8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E0C9B9114ECB5CA00FF4C8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E0C9B6514ECB5CA00FF4C8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */,
+				9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */,
+				9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */,
+				9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E0C9B8E14ECB5CA00FF4C8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E0C9B9914ECB5CA00FF4C8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E0C9B6814ECB5CA00FF4C8D /* LazyAlarm */;
+			targetProxy = 9E0C9B9814ECB5CA00FF4C8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E0C9B7714ECB5CA00FF4C8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E0C9B8614ECB5CA00FF4C8D /* en */,
+			);
+			name = MainViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E0C9B8914ECB5CA00FF4C8D /* en */,
+			);
+			name = MainViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E0C9B8C14ECB5CA00FF4C8D /* en */,
+			);
+			name = FlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+		9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E0C9B9E14ECB5CA00FF4C8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E0C9BA314ECB5CA00FF4C8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E0C9BA414ECB5CA00FF4C8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E0C9BA614ECB5CA00FF4C8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
+				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9E0C9BA714ECB5CA00FF4C8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
+				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9E0C9BA914ECB5CA00FF4C8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LazyAlarm.app/LazyAlarm";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
+				INFOPLIST_FILE = "LazyAlarmTests/LazyAlarmTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9E0C9BAA14ECB5CA00FF4C8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LazyAlarm.app/LazyAlarm";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
+				INFOPLIST_FILE = "LazyAlarmTests/LazyAlarmTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E0C9B6314ECB5CA00FF4C8D /* Build configuration list for PBXProject "LazyAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E0C9BA314ECB5CA00FF4C8D /* Debug */,
+				9E0C9BA414ECB5CA00FF4C8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E0C9BA514ECB5CA00FF4C8D /* Build configuration list for PBXNativeTarget "LazyAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E0C9BA614ECB5CA00FF4C8D /* Debug */,
+				9E0C9BA714ECB5CA00FF4C8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9E0C9BA814ECB5CA00FF4C8D /* Build configuration list for PBXNativeTarget "LazyAlarmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E0C9BA914ECB5CA00FF4C8D /* Debug */,
+				9E0C9BAA14ECB5CA00FF4C8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E0C9B6014ECB5CA00FF4C8D /* Project object */;
+}
