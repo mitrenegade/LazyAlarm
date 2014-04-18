@@ -10,19 +10,39 @@
 		9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */; };
 		9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
 		9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */; };
-		9E0C9B7814ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */; };
 		9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7914ECB5CA00FF4C8D /* main.m */; };
 		9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */; };
 		9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */; };
 		9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */; };
-		9E0C9B8714ECB5CA00FF4C8D /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */; };
-		9E0C9B8A14ECB5CA00FF4C8D /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */; };
-		9E0C9B8D14ECB5CA00FF4C8D /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */; };
 		9E0C9B9514ECB5CA00FF4C8D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B9414ECB5CA00FF4C8D /* SenTestingKit.framework */; };
 		9E0C9B9614ECB5CA00FF4C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */; };
 		9E0C9B9714ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
 		9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */; };
 		9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */; };
+		9E24AC2E1597CF28007C3F3F /* btn_share_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */; };
+		9E24AC2F1597CF28007C3F3F /* btn_share_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */; };
+		9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3115981B2A007C3F3F /* 014_switch_off.png */; };
+		9E24AC3415981B2B007C3F3F /* 014_switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3215981B2B007C3F3F /* 014_switch_on.png */; };
+		9E24AC3615981E93007C3F3F /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3515981E92007C3F3F /* alarm.wav */; };
+		9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */; };
+		9E24AC3B15982176007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3915982173007C3F3F /* 014_switch_off.png */; };
+		9E24AC3C15982176007C3F3F /* 014_switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3A15982173007C3F3F /* 014_switch_on.png */; };
+		9E9E704F159CEDF500EF996F /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E704E159CEDF500EF996F /* Appirater.m */; };
+		9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7050159CEF4700EF996F /* CFNetwork.framework */; };
+		9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */; };
+		9EC4C68317BDFD0900C53ADD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC4C68217BDFD0900C53ADD /* libFlurry.a */; };
+		9EDD168215BF98070072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
+		9EDD168615BF99410072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168415BF99410072860A /* Localizable.strings */; };
+		9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168715BF9F280072860A /* FlipsideViewController.xib */; };
+		9EDD168B15BF9F280072860A /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168815BF9F280072860A /* MainViewController_iPad.xib */; };
+		9EDD168C15BF9F280072860A /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */; };
+		9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
+		9EDD169315C090B20072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD169115C090B20072860A /* Localizable.strings */; };
+		9EDD169715C092910072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD169515C092910072860A /* Localizable.strings */; };
+		9EEF43E315993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */; };
+		9EEF43E415993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */; };
+		9EEF43E615993FA800B56A75 /* ZZZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E515993FA800B56A75 /* ZZZ.png */; };
+		9EEF43E815993FD800B56A75 /* ZZZ_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E715993FD700B56A75 /* ZZZ_57.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,25 +60,45 @@
 		9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */ = {isa = PBXFileReference; path = "LazyAlarm-Info.plist"; sourceTree = "<group>"; };
-		9E0C9B7714ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LazyAlarm-Info.plist"; sourceTree = "<group>"; };
 		9E0C9B7914ECB5CA00FF4C8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9E0C9B7B14ECB5CA00FF4C8D /* LazyAlarm-Prefix.pch */ = {isa = PBXFileReference; path = "LazyAlarm-Prefix.pch"; sourceTree = "<group>"; };
-		9E0C9B7C14ECB5CA00FF4C8D /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		9E0C9B7B14ECB5CA00FF4C8D /* LazyAlarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LazyAlarm-Prefix.pch"; sourceTree = "<group>"; };
+		9E0C9B7C14ECB5CA00FF4C8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9E0C9B7F14ECB5CA00FF4C8D /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		9E0C9B7F14ECB5CA00FF4C8D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
-		9E0C9B8614ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
-		9E0C9B8914ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
-		9E0C9B8C14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
 		9E0C9B9314ECB5CA00FF4C8D /* LazyAlarmTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyAlarmTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0C9B9414ECB5CA00FF4C8D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		9E0C9B9C14ECB5CA00FF4C8D /* LazyAlarmTests-Info.plist */ = {isa = PBXFileReference; path = "LazyAlarmTests-Info.plist"; sourceTree = "<group>"; };
+		9E0C9B9C14ECB5CA00FF4C8D /* LazyAlarmTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LazyAlarmTests-Info.plist"; sourceTree = "<group>"; };
 		9E0C9B9E14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */ = {isa = PBXFileReference; path = LazyAlarmTests.h; sourceTree = "<group>"; };
+		9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LazyAlarmTests.h; sourceTree = "<group>"; };
 		9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyAlarmTests.m; sourceTree = "<group>"; };
+		9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_off@2x.png"; sourceTree = "<group>"; };
+		9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_on@2x.png"; sourceTree = "<group>"; };
+		9E24AC3115981B2A007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
+		9E24AC3215981B2B007C3F3F /* 014_switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_on.png; sourceTree = "<group>"; };
+		9E24AC3515981E92007C3F3F /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
+		9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9E24AC3915982173007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
+		9E24AC3A15982173007C3F3F /* 014_switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_on.png; sourceTree = "<group>"; };
+		9E9E704D159CEDF500EF996F /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		9E9E704E159CEDF500EF996F /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		9E9E7050159CEF4700EF996F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9EC4C68117BDFD0900C53ADD /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		9EC4C68217BDFD0900C53ADD /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		9EDD168015BF98070072860A /* AttributeConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeConfigurator.h; sourceTree = "<group>"; };
+		9EDD168115BF98070072860A /* AttributeConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeConfigurator.m; sourceTree = "<group>"; };
+		9EDD168515BF99410072860A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
+		9EDD168715BF9F280072860A /* FlipsideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlipsideViewController.xib; sourceTree = "<group>"; };
+		9EDD168815BF9F280072860A /* MainViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPad.xib; sourceTree = "<group>"; };
+		9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPhone.xib; sourceTree = "<group>"; };
+		9EDD169615C092910072860A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiquidCrystal-Bold.otf"; sourceTree = "<group>"; };
+		9EEF43E515993FA800B56A75 /* ZZZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ.png; sourceTree = "<group>"; };
+		9EEF43E715993FD700B56A75 /* ZZZ_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ_57.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +106,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */,
+				9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */,
+				9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */,
 				9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */,
 				9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */,
 				9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */,
+				9EC4C68317BDFD0900C53ADD /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +132,11 @@
 		9E0C9B5E14ECB5CA00FF4C8D = {
 			isa = PBXGroup;
 			children = (
+				9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */,
+				9E9E7050159CEF4700EF996F /* CFNetwork.framework */,
+				9EEF43E715993FD700B56A75 /* ZZZ_57.png */,
+				9EEF43E515993FA800B56A75 /* ZZZ.png */,
+				9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */,
 				9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */,
 				9E0C9B9A14ECB5CA00FF4C8D /* LazyAlarmTests */,
 				9E0C9B6C14ECB5CA00FF4C8D /* Frameworks */,
@@ -118,15 +167,23 @@
 		9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				9EDD168015BF98070072860A /* AttributeConfigurator.h */,
+				9EDD168115BF98070072860A /* AttributeConfigurator.m */,
+				9EC4C68017BDFD0900C53ADD /* Flurry */,
+				9E9E704C159CEDF500EF996F /* Appirator */,
+				9E24AC3915982173007C3F3F /* 014_switch_off.png */,
+				9E24AC3A15982173007C3F3F /* 014_switch_on.png */,
+				9E24AC3515981E92007C3F3F /* alarm.wav */,
+				9E24AC3115981B2A007C3F3F /* 014_switch_off.png */,
+				9E24AC3215981B2B007C3F3F /* 014_switch_on.png */,
+				9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */,
+				9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */,
 				9E0C9B7C14ECB5CA00FF4C8D /* AppDelegate.h */,
 				9E0C9B7D14ECB5CA00FF4C8D /* AppDelegate.m */,
 				9E0C9B7F14ECB5CA00FF4C8D /* MainViewController.h */,
 				9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */,
 				9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */,
 				9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */,
-				9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */,
-				9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */,
-				9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */,
 				9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */,
 			);
 			path = LazyAlarm;
@@ -135,8 +192,13 @@
 		9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9EDD168715BF9F280072860A /* FlipsideViewController.xib */,
+				9EDD168815BF9F280072860A /* MainViewController_iPad.xib */,
+				9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */,
+				9EDD168315BF99410072860A /* fr.lproj */,
+				9EDD167815BF97800072860A /* en.lproj */,
+				9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */,
 				9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */,
-				9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */,
 				9E0C9B7914ECB5CA00FF4C8D /* main.m */,
 				9E0C9B7B14ECB5CA00FF4C8D /* LazyAlarm-Prefix.pch */,
 			);
@@ -160,6 +222,40 @@
 				9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E9E704C159CEDF500EF996F /* Appirator */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E704D159CEDF500EF996F /* Appirater.h */,
+				9E9E704E159CEDF500EF996F /* Appirater.m */,
+			);
+			path = Appirator;
+			sourceTree = "<group>";
+		};
+		9EC4C68017BDFD0900C53ADD /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				9EC4C68117BDFD0900C53ADD /* Flurry.h */,
+				9EC4C68217BDFD0900C53ADD /* libFlurry.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		9EDD167815BF97800072860A /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9EDD169515C092910072860A /* Localizable.strings */,
+			);
+			name = en.lproj;
+			sourceTree = "<group>";
+		};
+		9EDD168315BF99410072860A /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9EDD168415BF99410072860A /* Localizable.strings */,
+			);
+			path = fr.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +311,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = 9E0C9B5E14ECB5CA00FF4C8D;
 			productRefGroup = 9E0C9B6A14ECB5CA00FF4C8D /* Products */;
@@ -232,10 +329,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E0C9B7814ECB5CA00FF4C8D /* InfoPlist.strings in Resources */,
-				9E0C9B8714ECB5CA00FF4C8D /* MainViewController_iPhone.xib in Resources */,
-				9E0C9B8A14ECB5CA00FF4C8D /* MainViewController_iPad.xib in Resources */,
-				9E0C9B8D14ECB5CA00FF4C8D /* FlipsideViewController.xib in Resources */,
+				9E24AC2E1597CF28007C3F3F /* btn_share_switch_off@2x.png in Resources */,
+				9E24AC2F1597CF28007C3F3F /* btn_share_switch_on@2x.png in Resources */,
+				9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */,
+				9E24AC3415981B2B007C3F3F /* 014_switch_on.png in Resources */,
+				9E24AC3615981E93007C3F3F /* alarm.wav in Resources */,
+				9E24AC3B15982176007C3F3F /* 014_switch_off.png in Resources */,
+				9E24AC3C15982176007C3F3F /* 014_switch_on.png in Resources */,
+				9EEF43E315993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */,
+				9EEF43E615993FA800B56A75 /* ZZZ.png in Resources */,
+				9EEF43E815993FD800B56A75 /* ZZZ_57.png in Resources */,
+				9EDD168615BF99410072860A /* Localizable.strings in Resources */,
+				9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */,
+				9EDD168B15BF9F280072860A /* MainViewController_iPad.xib in Resources */,
+				9EDD168C15BF9F280072860A /* MainViewController_iPhone.xib in Resources */,
+				9EDD169315C090B20072860A /* Localizable.strings in Resources */,
+				9EDD169715C092910072860A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */,
+				9EEF43E415993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,10 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */,
 				9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */,
 				9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */,
 				9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */,
 				9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */,
+				9E9E704F159CEDF500EF996F /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */,
+				9EDD168215BF98070072860A /* AttributeConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,44 +409,36 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9E0C9B7614ECB5CA00FF4C8D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E0C9B7714ECB5CA00FF4C8D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9E0C9B8514ECB5CA00FF4C8D /* MainViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E0C9B8614ECB5CA00FF4C8D /* en */,
-			);
-			name = MainViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		9E0C9B8814ECB5CA00FF4C8D /* MainViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E0C9B8914ECB5CA00FF4C8D /* en */,
-			);
-			name = MainViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		9E0C9B8B14ECB5CA00FF4C8D /* FlipsideViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E0C9B8C14ECB5CA00FF4C8D /* en */,
-			);
-			name = FlipsideViewController.xib;
-			sourceTree = "<group>";
-		};
 		9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9E0C9B9E14ECB5CA00FF4C8D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9EDD168415BF99410072860A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EDD168515BF99410072860A /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		9EDD169115C090B20072860A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = Localizable.strings;
+			path = /Users/mitrenegade12/Desktop/Projects/LazyAlarm/LazyAlarm;
+			sourceTree = "<absolute>";
+		};
+		9EDD169515C092910072860A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EDD169615C092910072860A /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -389,10 +494,21 @@
 		9E0C9BA614ECB5CA00FF4C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LazyAlarm/FlurryAnalytics\"",
+					"\"$(SRCROOT)/LazyAlarm/Flurry\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -400,10 +516,21 @@
 		9E0C9BA714ECB5CA00FF4C8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LazyAlarm/FlurryAnalytics\"",
+					"\"$(SRCROOT)/LazyAlarm/Flurry\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -461,6 +588,7 @@
 				9E0C9BA714ECB5CA00FF4C8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E0C9BA814ECB5CA00FF4C8D /* Build configuration list for PBXNativeTarget "LazyAlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +597,7 @@
 				9E0C9BAA14ECB5CA00FF4C8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

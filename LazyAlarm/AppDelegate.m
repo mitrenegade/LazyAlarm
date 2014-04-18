@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AudioToolbox/AudioToolbox.h>
 #import "MainViewController.h"
+#import "Flurry.h"
+#import "Appirater.h"
 
 @implementation AppDelegate
 
@@ -26,6 +28,13 @@
     }
     self.window.rootViewController = self.mainViewController;
     [self.window makeKeyAndVisible];
+    
+    // flurry analytics
+    [Flurry startSession:@"GSTNM3XYT4FCMJ48DYQ3"];
+    
+    // call the Appirater class
+    [Appirater appLaunched];
+
     return YES;
 }
 
@@ -50,6 +59,7 @@
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -66,6 +76,35 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Alarm" message:@"Time to get up!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alertView show];
+    
+    // BUZZ
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    // PLAY AUDIO
+    SystemSoundID audioEffect;
+    NSString *path  = [[NSBundle mainBundle] pathForResource : @"alarm" ofType :@"wav"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath : path])
+    {
+        NSURL *pathURL = [NSURL fileURLWithPath : path];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef) pathURL, &audioEffect);
+        AudioServicesPlaySystemSound(audioEffect);
+    }
+    else
+    {
+        NSLog(@"error, file not found: %@", path);
+    }
+    // display info
+    NSDictionary * userInfo = [notification userInfo];
+    NSString * alarmType = [userInfo objectForKey:@"alarmType"];
+    NSString * alarmTime = [userInfo objectForKey:@"alarmTime"];
+    NSLog(@"Alarm! Type %@ time %@", alarmType, alarmTime);
+    
+    // reset alarms
+    [self.mainViewController autoUpdateAlarm:alarmType];
 }
 
 @end
