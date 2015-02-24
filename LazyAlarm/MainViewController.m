@@ -48,29 +48,6 @@
 //    [Flurry logPageView];
 }
 
-/*
--(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    // check orientation
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
-        // code for landscape orientation      
-        [titleLabel setFrame:CGRectMake(80, 60, 205, 70)];
-        [lazySwitch setFrame:CGRectMake(330, 50, 105, 140)];
-//        [amILazy setFrame:CGRectMake(80, 140, 205, 70)];
-        [lazyLabel setFrame:CGRectMake(108, 218, 265, 60)];
-        [showInfo setFrame:CGRectMake(442, 261, 18, 19)];
-//        [Flurry logEvent:@"OrientationChangeLandscape"];
-    }
-    else {
-        [titleLabel setFrame:CGRectMake(8, 68, 205, 70)];
-        [lazySwitch setFrame:CGRectMake(108, 171, 105, 140)];
-//        [amILazy setFrame:CGRectMake(179, 54, 141, 98)];
-        [lazyLabel setFrame:CGRectMake(28, 333, 265, 60)];
-        [showInfo setFrame:CGRectMake(282, 421, 18, 19)];
-//        [Flurry logEvent:@"OrientationChangePortrait"];
-    }
-}
-*/
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
@@ -79,17 +56,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    [self checkOrientation:interfaceOrientation];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 #pragma mark - Flipside View Controller
@@ -126,29 +92,6 @@
     [self doSetAlarm:nil];
     
     [self showAllNotifications];
-}
-
-- (IBAction)showInfo:(id)sender
-{
-//    [Flurry logEvent:@"ClickShowInfoButton"];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-        controller.delegate = self;
-        controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:controller animated:YES];
-    } else {
-        if (!self.flipsidePopoverController) {
-            FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-            controller.delegate = self;
-            
-            self.flipsidePopoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-        }
-        if ([self.flipsidePopoverController isPopoverVisible]) {
-            [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        } else {
-            [self.flipsidePopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-    }
 }
 
 -(void)setAlarmAtDate:(NSDate*)date {
@@ -262,5 +205,11 @@
     }
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"FlipSegue"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        FlipsideViewController *controller = nav.viewControllers[0];
+        controller.delegate = self;
+    }
+}
 @end

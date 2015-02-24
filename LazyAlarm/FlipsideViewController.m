@@ -68,20 +68,6 @@
     }
 }
 
--(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
-        [selector setFrame:CGRectMake(137, 48, 207, 30)];
-        [timePicker setFrame:CGRectMake(112, 85, 256, 216)];
-        [lazyOnOff setFrame:CGRectMake(386, 50, 79, 27)];
-    }
-    else {
-        [selector setFrame:CGRectMake(57, 73, 207, 30)];
-        [timePicker setFrame:CGRectMake(0, 179, 320, 216)];
-        [lazyOnOff setFrame:CGRectMake(121, 122, 79, 27)];
-    }
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -95,17 +81,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    [self checkOrientation:interfaceOrientation];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 #pragma mark - Actions

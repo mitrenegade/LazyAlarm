@@ -30,7 +30,6 @@
 		9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */; };
 		9ECB456E1A9CC98D00D5E48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECB456D1A9CC98D00D5E48C /* Main.storyboard */; };
 		9EDD168215BF98070072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
-		9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168715BF9F280072860A /* FlipsideViewController.xib */; };
 		9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
 		9EDD169315C090B20072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD169115C090B20072860A /* Localizable.strings */; };
 		9EEF43E315993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */; };
@@ -84,7 +83,6 @@
 		9ECB456D1A9CC98D00D5E48C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9EDD168015BF98070072860A /* AttributeConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeConfigurator.h; sourceTree = "<group>"; };
 		9EDD168115BF98070072860A /* AttributeConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeConfigurator.m; sourceTree = "<group>"; };
-		9EDD168715BF9F280072860A /* FlipsideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlipsideViewController.xib; sourceTree = "<group>"; };
 		9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiquidCrystal-Bold.otf"; sourceTree = "<group>"; };
 		9EEF43E515993FA800B56A75 /* ZZZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ.png; sourceTree = "<group>"; };
 		9EEF43E715993FD700B56A75 /* ZZZ_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ_57.png; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9EDD168715BF9F280072860A /* FlipsideViewController.xib */,
 				9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */,
 				9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */,
 				9E0C9B7914ECB5CA00FF4C8D /* main.m */,
@@ -298,7 +295,6 @@
 				9EEF43E615993FA800B56A75 /* ZZZ.png in Resources */,
 				9ECB456E1A9CC98D00D5E48C /* Main.storyboard in Resources */,
 				9EEF43E815993FD800B56A75 /* ZZZ_57.png in Resources */,
-				9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */,
 				9EDD169315C090B20072860A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
