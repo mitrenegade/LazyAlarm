@@ -148,7 +148,7 @@
     NSLog(@"Did switch alarm to index %d", alarmIndex);
     if (alarmIndex == 0) {
         [navItem setTitle:@"Set regular alarm"];
-        [Flurry logEvent:@"DidChangeRegularAlarmTime"];
+//        [Flurry logEvent:@"DidChangeRegularAlarmTime"];
         if (normalAlarm)
             [timePicker setDate:normalAlarm];
         else {
@@ -159,7 +159,7 @@
     }
     if (alarmIndex == 1) {
         [navItem setTitle:@"Set lazy alarm"];
-        [Flurry logEvent:@"DidChangeLazyAlarmTime"];
+//        [Flurry logEvent:@"DidChangeLazyAlarmTime"];
         if (lazyAlarm)
             [timePicker setDate:lazyAlarm];
         else {
@@ -172,10 +172,11 @@
 
 -(IBAction)didToggleLazyAlarm:(id)sender {
     bLazyIsOn = [lazyOnOff isOn];
-    if (bLazyIsOn)
-        [Flurry logEvent:@"DidTurnLazyBackOn"];
+    if (bLazyIsOn) {
+//        [Flurry logEvent:@"DidTurnLazyBackOn"];
+    }
     else {
-        [Flurry logEvent:@"DidTurnLazyOff"];
+//        [Flurry logEvent:@"DidTurnLazyOff"];
     }
 }
 

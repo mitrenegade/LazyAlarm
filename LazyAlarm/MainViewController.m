@@ -45,9 +45,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [Flurry logPageView];
+//    [Flurry logPageView];
 }
 
+/*
 -(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation{
     // check orientation
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
@@ -55,22 +56,21 @@
         // code for landscape orientation      
         [titleLabel setFrame:CGRectMake(80, 60, 205, 70)];
         [lazySwitch setFrame:CGRectMake(330, 50, 105, 140)];
-        [amILazy setFrame:CGRectMake(80, 140, 205, 70)];
+//        [amILazy setFrame:CGRectMake(80, 140, 205, 70)];
         [lazyLabel setFrame:CGRectMake(108, 218, 265, 60)];
         [showInfo setFrame:CGRectMake(442, 261, 18, 19)];
-        [Flurry logEvent:@"OrientationChangeLandscape"];
+//        [Flurry logEvent:@"OrientationChangeLandscape"];
     }
     else {
         [titleLabel setFrame:CGRectMake(8, 68, 205, 70)];
         [lazySwitch setFrame:CGRectMake(108, 171, 105, 140)];
-        [amILazy setFrame:CGRectMake(179, 54, 141, 98)];
+//        [amILazy setFrame:CGRectMake(179, 54, 141, 98)];
         [lazyLabel setFrame:CGRectMake(28, 333, 265, 60)];
         [showInfo setFrame:CGRectMake(282, 421, 18, 19)];
-        [Flurry logEvent:@"OrientationChangePortrait"];
+//        [Flurry logEvent:@"OrientationChangePortrait"];
     }
-    [icon setHidden:YES];
 }
-
+*/
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
@@ -130,7 +130,7 @@
 
 - (IBAction)showInfo:(id)sender
 {
-    [Flurry logEvent:@"ClickShowInfoButton"];
+//    [Flurry logEvent:@"ClickShowInfoButton"];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
         controller.delegate = self;
@@ -192,33 +192,33 @@
 -(void)setSwitchToLazy:(BOOL)lazy {
     NSLog(@"Calling setSwitchToLazy: %d", lazy);
     if (lazy) {
-        [Flurry logEvent:@"DidSwitchToLazy"];
+//        [Flurry logEvent:@"DidSwitchToLazy"];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_on.png"] forState:UIControlStateNormal];
-        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"YesLabel", nil, nil, @"YES", @"Affirmative statement")];
+//        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"YesLabel", nil, nil, @"YES", @"Affirmative statement")];
          //NS_LocalizedStringWithDefaultValue(@"YesLabel", nil, [NSBundle mainBundle], @"DEFAULT: YES", @"Affirmative statement")];
         if (lazyAlarm) {
-            [lazyLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"You are being lazy and sleeping in", @"Lazy alarm set message")];
+            [detailLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"You are being lazy and sleeping in", @"Lazy alarm set message")];
             //NS_LocalizedStringWithDefaultValue(@"LazyAlarmSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: You are being lazy and sleeping in!", @"Lazy alarm set message")];
 //            [self setAlarmAtDate:lazyAlarm];
         }
         else {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyAlarmNotSetMessage", nil, nil,@"No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyAlarmNotSetMessage", nil, nil,@"No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
              //NS_LocalizedStringWithDefaultValue(@"LazyAlarmNotSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
 //            [self setAlarmAtDate:nil];
         }
     }
     else {
-        [Flurry logEvent:@"DidSwitchToNotLazy"];
+//        [Flurry logEvent:@"DidSwitchToNotLazy"];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_off.png"] forState:UIControlStateNormal];
-        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"NoLabel",nil, nil, @"NO", @"Negatory statement")];
+//        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"NoLabel",nil, nil, @"NO", @"Negatory statement")];
          //NS_LocalizedStringWithDefaultValue(@"NoLabel", nil, [NSBundle mainBundle], @"DEFAULT: NO", @"Negatory statement")];
         if (normalAlarm) {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
              //NS_LocalizedStringWithDefaultValue(@"NonlazyAlarmSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
 //            [self setAlarmAtDate:normalAlarm];
         }
         else {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
              //NS_LocalizedStringWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: No alarm currently set!", @"Nonlazy alarm not set message")];
 //            [self setAlarmAtDate:nil];
         }
@@ -228,7 +228,6 @@
 -(void)toggleSwitch {
     bIsLazy = !bIsLazy;
     [self setSwitchToLazy:bIsLazy];
-    
     [self showAllNotifications];
 }
 

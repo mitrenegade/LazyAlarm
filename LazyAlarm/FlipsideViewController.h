@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Flurry.h"
 #import "Appirater.h"
 @class FlipsideViewController;
 

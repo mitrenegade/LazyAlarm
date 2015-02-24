@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MainViewController.h"
-#import "Flurry.h"
+
 #import "Appirater.h"
 
 @implementation AppDelegate
@@ -19,19 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPhone" bundle:nil];
-    } else {
-        self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPad" bundle:nil];
-    }
-    self.window.rootViewController = self.mainViewController;
-    [self.window makeKeyAndVisible];
-    
-    // flurry analytics
-    [Flurry startSession:@"GSTNM3XYT4FCMJ48DYQ3"];
-    
     // call the Appirater class
     [Appirater appLaunched];
 

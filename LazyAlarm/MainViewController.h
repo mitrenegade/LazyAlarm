@@ -7,23 +7,19 @@
 //
 
 #import "FlipsideViewController.h"
-#import "Flurry.h"
 #import "AttributeConfigurator.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
 {
     //IBOutlet UISwitch * lazySwitch;
     IBOutlet UILabel * titleLabel;
+    IBOutlet UILabel * detailLabel;
     IBOutlet UIButton * lazySwitch;
-    IBOutlet UILabel * lazyLabel;
-    IBOutlet UILabel * amILazy;
     IBOutlet UIButton * showInfo;
+
     BOOL bIsLazy;
     NSDate * normalAlarm;
     NSDate * lazyAlarm;
-    IBOutlet UIButton * buttonSetAlarm;
-    
-    IBOutlet UIButton * icon;
 }
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
