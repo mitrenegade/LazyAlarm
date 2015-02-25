@@ -13,6 +13,8 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#define TESTING 1
+
 #define kKeyAlarmMode @"alarm:mode:islazy"
 #define kKeyLazyAlarmEnabled @"alarm:enabled:lazy"
 #define kKeyNormalAlarmEnabled @"alarm:enabled:normal"

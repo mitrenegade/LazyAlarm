@@ -40,6 +40,7 @@
         alarmState = [_defaults boolForKey:kKeyNormalAlarmEnabled];
     }
 
+    timePicker.datePickerMode = UIDatePickerModeTime;
     if (self.currentAlarm) {
         timePicker.date = self.currentAlarm;
     }

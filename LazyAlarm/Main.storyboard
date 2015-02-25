@@ -67,6 +67,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H6z-qe-jxB">
+                                <rect key="frame" x="385" y="171" width="194" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="257" id="UY3-m8-TzY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -75,7 +84,10 @@
                             <constraint firstItem="Wju-Lo-5NH" firstAttribute="top" secondItem="kWu-E7-kH4" secondAttribute="bottom" constant="8" id="Owf-mO-XiW"/>
                             <constraint firstAttribute="centerY" secondItem="kWu-E7-kH4" secondAttribute="centerY" id="TS9-q8-gCP"/>
                             <constraint firstAttribute="centerX" secondItem="kWu-E7-kH4" secondAttribute="centerX" id="aX9-xz-KkL"/>
+                            <constraint firstAttribute="centerY" secondItem="H6z-qe-jxB" secondAttribute="centerY" id="ah7-cO-tfr"/>
+                            <constraint firstItem="H6z-qe-jxB" firstAttribute="leading" secondItem="kWu-E7-kH4" secondAttribute="trailing" constant="40" id="doa-2r-9gV"/>
                             <constraint firstItem="ZTJ-6M-oUU" firstAttribute="top" secondItem="agn-uS-Kb8" secondAttribute="bottom" id="fIW-6A-9Wt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H6z-qe-jxB" secondAttribute="trailing" constant="5" id="h3S-ce-eFY"/>
                             <constraint firstItem="xFq-78-oH9" firstAttribute="top" secondItem="Wju-Lo-5NH" secondAttribute="bottom" constant="20" id="lMy-Dy-xNj"/>
                             <constraint firstItem="HDq-0Y-t3V" firstAttribute="top" secondItem="agn-uS-Kb8" secondAttribute="bottom" constant="8" id="sTV-o3-cCC"/>
                             <constraint firstAttribute="centerX" secondItem="Wju-Lo-5NH" secondAttribute="centerX" id="sat-nt-XJn"/>
@@ -84,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="Wju-Lo-5NH" id="CLm-CS-Kgo"/>
+                        <outlet property="labelDebug" destination="H6z-qe-jxB" id="dL9-Ab-LyB"/>
                         <outlet property="lazySwitch" destination="kWu-E7-kH4" id="JTX-jo-yq8"/>
                         <outlet property="showInfo" destination="HDq-0Y-t3V" id="iga-PY-bvd"/>
                         <outlet property="titleLabel" destination="ZTJ-6M-oUU" id="cBN-Px-X0O"/>
@@ -91,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vy-VT-HDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="124"/>
+            <point key="canvasLocation" x="70" y="180"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FSe-lY-ejW">

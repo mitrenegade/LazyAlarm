@@ -17,6 +17,8 @@
     IBOutlet UIButton * lazySwitch;
     IBOutlet UIButton * showInfo;
 
+    IBOutlet UILabel *labelDebug;
+
     BOOL bIsLazy;
     NSDate * normalAlarm;
     NSDate * lazyAlarm;

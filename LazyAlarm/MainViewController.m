@@ -29,7 +29,11 @@
 
     [self alarmFromDefaults];
 
-    [self setSwitchToLazy:bIsLazy];    
+    [self setSwitchToLazy:bIsLazy];
+
+    if (!TESTING) {
+        [labelDebug setHidden:YES];
+    }
 }
 - (void)viewDidUnload
 {
@@ -56,11 +60,13 @@
         [comps setHour:[hour intValue]];
         [comps setMinute:[minute intValue]];
         [comps setSecond:0];
-        normalAlarm = [cal dateFromComponents:comps];
+        lazyAlarm = [cal dateFromComponents:comps];
+        if ([lazyAlarm timeIntervalSinceNow] < 0)
+            lazyAlarm = [normalAlarm dateByAddingTimeInterval:24*3600];
     }
 
-    hour = [_defaults objectForKey:kKeyLazyAlarmHour];
-    minute = [_defaults objectForKey:kKeyLazyAlarmMinute];
+    hour = [_defaults objectForKey:kKeyNormalAlarmHour];
+    minute = [_defaults objectForKey:kKeyNormalAlarmMinute];
     if (hour && minute) {
         NSDate * now = [NSDate date];
         NSCalendar *cal = [NSCalendar currentCalendar];
@@ -69,7 +75,36 @@
         [comps setMinute:[minute intValue]];
         [comps setSecond:0];
         normalAlarm = [cal dateFromComponents:comps];
+        if ([normalAlarm timeIntervalSinceNow] < 0)
+            normalAlarm = [normalAlarm dateByAddingTimeInterval:24*3600];
     }
+
+    [self updateDebugDetails];
+}
+
+-(void)updateDebugDetails {
+#if TESTING
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+
+    NSString *details = @"Alarm details: \n";
+    if (lazyAlarm) {
+        NSString *dateString = [dateFormatter stringFromDate:lazyAlarm];
+        details = [NSString stringWithFormat:@"%@Lazy alarm: %@\n", details, dateString];
+    }
+    if (normalAlarm) {
+        NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
+        details = [NSString stringWithFormat:@"%@Normal alarm: %@\n", details, dateString];
+    }
+
+    NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *n in notifications) {
+        NSDate *date = n.fireDate;
+        NSString *dateString = [dateFormatter stringFromDate:date];
+        details = [NSString stringWithFormat:@"%@Scheduled notification: %@\n", details, dateString];
+    }
+    labelDebug.text = details;
+#endif
 }
 
 #pragma mark - Flipside View Controller
@@ -127,6 +162,8 @@
     else {
         NSLog(@"No alarm time set: all alarms cancelled.");
     }
+
+    [self updateDebugDetails];
 }
 
 -(IBAction)didClickSwitch:(id)sender {
