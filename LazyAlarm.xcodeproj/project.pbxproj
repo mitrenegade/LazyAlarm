@@ -261,6 +261,11 @@
 			attributes = {
 				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					9E0C9B6814ECB5CA00FF4C8D = {
+						DevelopmentTeam = H799H8B8DD;
+					};
+				};
 			};
 			buildConfigurationList = 9E0C9B6314ECB5CA00FF4C8D /* Build configuration list for PBXProject "LazyAlarm" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -461,7 +466,6 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,16 +474,15 @@
 		9E0C9BA714ECB5CA00FF4C8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "c234a43e-da76-4087-9a0b-5531ae287b44";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
