@@ -54,10 +54,16 @@
     NSDate *currentAlarm = timePicker.date;
     NSString *dateString = [dateFormatter stringFromDate:currentAlarm];
     if (!self.isEditingLazyAlarm) {
-        [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Regular alarm set before: %@", dateString]:@"Not set")];
+        if (options == AlarmOptionsOff)
+            labelAlarmState.text = @"Regular alarm is off";
+        else
+            [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Regular alarm set before: %@", dateString]:@"Not set")];
     }
     else {
-        [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Lazy alarm set after: %@", dateString]:@"Not set")];
+        if (options == AlarmOptionsOff)
+            labelAlarmState.text = @"Lazy alarm is off";
+        else
+            [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Lazy alarm set after: %@", dateString]:@"Not set")];
     }
 }
 
@@ -102,6 +108,11 @@
 
 -(IBAction)didChangeSlider:(id)sender {
     [self updateSliderTitle];
+    [self updateAlarmTitle];
+}
+
+-(IBAction)didChangeTimePicker:(id)sender {
+    [self updateAlarmTitle];
 }
 
 - (void)viewDidUnload

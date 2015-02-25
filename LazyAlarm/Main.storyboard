@@ -149,7 +149,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="didChangeTime:" destination="Ppf-Eh-rbR" eventType="touchUpInside" id="2zY-0R-d8t"/>
+                                    <action selector="didChangeTimePicker:" destination="Ppf-Eh-rbR" eventType="valueChanged" id="oUN-SS-Z2C"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm State" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3h7-xK-fKq">
