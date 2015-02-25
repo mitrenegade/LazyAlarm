@@ -16,7 +16,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 480.0);
     }
     return self;
 }
@@ -33,8 +32,87 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    normalAlarm = nil;
-    lazyAlarm = nil;
+
+    timePicker.datePickerMode = UIDatePickerModeTime;
+    if (self.currentAlarm) {
+        timePicker.date = self.currentAlarm;
+    }
+    else {
+        timePicker.date = [NSDate date];
+    }
+
+    options = [[_defaults objectForKey:self.isEditingLazyAlarm?kKeyLazyAlarmOptions:kKeyNormalAlarmOptions] intValue];
+    sliderOptions.value = options;
+
+    [self updateAlarmTitle];
+    [self updateSliderTitle];
+}
+
+-(void)updateAlarmTitle {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSDate *currentAlarm = timePicker.date;
+    NSString *dateString = [dateFormatter stringFromDate:currentAlarm];
+    if (!self.isEditingLazyAlarm) {
+        if (options == AlarmOptionsOff)
+            labelAlarmState.text = @"Regular alarm is off";
+        else
+            [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Regular alarm set before: %@", dateString]:@"Not set")];
+    }
+    else {
+        if (options == AlarmOptionsOff)
+            labelAlarmState.text = @"Lazy alarm is off";
+        else
+            [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Lazy alarm set after: %@", dateString]:@"Not set")];
+    }
+}
+
+-(void)updateSliderTitle {
+    if (self.isEditingLazyAlarm) {
+        if (sliderOptions.value < 1) {
+            labelDetails.text = @"Alarm off";
+            options = AlarmOptionsOff;
+        }
+        else if (sliderOptions.value < 2) {
+            labelDetails.text = @"Wake me at exactly:";
+            options = AlarmOptionsExact;
+        }
+        else if (sliderOptions.value < 3) {
+            labelDetails.text = @"Wake me little after:";
+            options = AlarmOptionsSmall;
+        }
+        else {
+            labelDetails.text = @"Wake me way after:";
+            options = AlarmOptionsLarge;
+        }
+    }
+    else {
+        if (sliderOptions.value < 1) {
+            labelDetails.text = @"Alarm off";
+            options = AlarmOptionsOff;
+        }
+        else if (sliderOptions.value < 2) {
+            labelDetails.text = @"Wake me at exactly:";
+            options = AlarmOptionsExact;
+        }
+        else if (sliderOptions.value < 3) {
+            labelDetails.text = @"Wake me little before:";
+            options = AlarmOptionsSmall;
+        }
+        else {
+            labelDetails.text = @"Wake me way before:";
+            options = AlarmOptionsLarge;
+        }
+    }
+}
+
+-(IBAction)didChangeSlider:(id)sender {
+    [self updateSliderTitle];
+    [self updateAlarmTitle];
+}
+
+-(IBAction)didChangeTimePicker:(id)sender {
+    [self updateAlarmTitle];
 }
 
 - (void)viewDidUnload
@@ -44,139 +122,25 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    bLazyIsOn = [lazyOnOff isOn];
-    [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    int alarmIndex = selector.selectedSegmentIndex;
-    if (alarmIndex == 0) {
-        [navItem setTitle:@"Set regular alarm"];
-        if (!normalAlarm)
-            normalAlarm = timePicker.date;
-        else
-            [timePicker setDate:normalAlarm];
-        [lazyOnOff setHidden:YES];
-    }
-    else if (alarmIndex == 1) {
-        [navItem setTitle:@"Set lazy alarm"];
-        if (!lazyAlarm) 
-            lazyAlarm = timePicker.date;
-        else 
-            [timePicker setDate:lazyAlarm];
-        [lazyOnOff setHidden:NO];
-    }
-}
-
--(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
-        [selector setFrame:CGRectMake(137, 48, 207, 30)];
-        [timePicker setFrame:CGRectMake(112, 85, 256, 216)];
-        [lazyOnOff setFrame:CGRectMake(386, 50, 79, 27)];
-    }
-    else {
-        [selector setFrame:CGRectMake(57, 73, 207, 30)];
-        [timePicker setFrame:CGRectMake(0, 179, 320, 216)];
-        [lazyOnOff setFrame:CGRectMake(121, 122, 79, 27)];
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    [self checkOrientation:interfaceOrientation];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
-
 #pragma mark - Actions
-
 - (IBAction)done:(id)sender
 {
-    NSMutableDictionary * alarmList = [[NSMutableDictionary alloc] init];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:SS"];
-    [Appirater userDidSignificantEvent:YES];
-    if (normalAlarm) {
-        NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
-        NSLog(@"Normal alarm set to %@", dateString);
-        [alarmList setObject:normalAlarm forKey:@"normal"];
+    if (options != AlarmOptionsOff) {
+        [Appirater userDidSignificantEvent:YES];
     }
-    if (lazyAlarm) {
-        if (bLazyIsOn) {
-            NSString *dateString = [dateFormatter stringFromDate:lazyAlarm];
-            NSLog(@"Lazy alarm set to %@", dateString);
-            [alarmList setObject:lazyAlarm forKey:@"lazy"];
-        }
-        else {
-            NSLog(@"Lazy alarm set to off!");
-        }
-    }
-          
-    [self.delegate flipsideViewControllerDidFinish:self withAlarms:alarmList];
-}
 
--(IBAction)didChangeTime:(id)sender {
-    int alarmIndex = selector.selectedSegmentIndex;
-    if (alarmIndex == 0)
-        normalAlarm = [timePicker.date copy];
-    else if (alarmIndex == 1)
-        lazyAlarm = [timePicker.date copy];
-}
+    NSDate * now = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
+    NSDateComponents * picked = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:timePicker.date];
+    comps.hour = picked.hour;
+    comps.minute = picked.minute;
+    NSDate *date = [cal dateFromComponents:comps];
 
--(IBAction)didSwitchAlarm:(id)sender {
-    int alarmIndex = selector.selectedSegmentIndex;
-    NSLog(@"Did switch alarm to index %d", alarmIndex);
-    if (alarmIndex == 0) {
-        [navItem setTitle:@"Set regular alarm"];
-        [Flurry logEvent:@"DidChangeRegularAlarmTime"];
-        if (normalAlarm)
-            [timePicker setDate:normalAlarm];
-        else {
-            [timePicker setDate:[NSDate date]];
-            normalAlarm = timePicker.date;
-        }
-        [lazyOnOff setHidden:YES];
-    }
-    if (alarmIndex == 1) {
-        [navItem setTitle:@"Set lazy alarm"];
-        [Flurry logEvent:@"DidChangeLazyAlarmTime"];
-        if (lazyAlarm)
-            [timePicker setDate:lazyAlarm];
-        else {
-            [timePicker setDate:[NSDate date]];
-            lazyAlarm = timePicker.date;
-        }
-        [lazyOnOff setHidden:NO];
-    }
-}
+    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date options:options];
 
--(IBAction)didToggleLazyAlarm:(id)sender {
-    bLazyIsOn = [lazyOnOff isOn];
-    if (bLazyIsOn)
-        [Flurry logEvent:@"DidTurnLazyBackOn"];
-    else {
-        [Flurry logEvent:@"DidTurnLazyOff"];
-    }
+    [PFAnalytics trackEventInBackground:@"alarm_set" dimensions:@{@"mode":self.isEditingLazyAlarm?@"Lazy":@"Normal", @"options":labelDetails.text} block:nil];
+    [PFAnalytics trackEventInBackground:@"alarm_time" dimensions:@{@"hour":[NSString stringWithFormat:@"%d", (int)comps.hour]} block:nil];
 }
 
 @end

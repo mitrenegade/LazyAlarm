@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MainViewController.h"
-#import "Flurry.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import "Appirater.h"
 
 @implementation AppDelegate
@@ -19,21 +20,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPhone" bundle:nil];
-    } else {
-        self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPad" bundle:nil];
-    }
-    self.window.rootViewController = self.mainViewController;
-    [self.window makeKeyAndVisible];
-    
-    // flurry analytics
-    [Flurry startSession:@"GSTNM3XYT4FCMJ48DYQ3"];
-    
     // call the Appirater class
-    [Appirater appLaunched];
+    [Appirater appLaunched:YES];
+
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+
+    [Fabric with:@[CrashlyticsKit]];
+
+    // Initialize Parse.
+    [Parse setApplicationId:@"IoYZSeKrVsNokXRUVRomGxVeHMMvmfOY464ICMEM"
+                  clientKey:@"KsP4d8G2StCHv64lNrLI7QDydRmBWgisbp0NcXoP"];
+
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
 }
@@ -67,6 +68,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

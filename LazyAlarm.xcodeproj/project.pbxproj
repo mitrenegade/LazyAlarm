@@ -19,26 +19,30 @@
 		9E0C9B9714ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
 		9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */; };
 		9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */; };
+		9E1314BF1A9E4F500051922A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BD1A9E4F500051922A /* Crashlytics.framework */; };
+		9E1314C01A9E4F500051922A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BE1A9E4F500051922A /* Fabric.framework */; };
+		9E1314C31A9E509A0051922A /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1314C21A9E509A0051922A /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9E1314C51A9E52D30051922A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314C41A9E52D30051922A /* CoreLocation.framework */; };
+		9E1314C71A9E52D70051922A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314C61A9E52D70051922A /* MobileCoreServices.framework */; };
+		9E1314C91A9E52DB0051922A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314C81A9E52DB0051922A /* QuartzCore.framework */; };
+		9E1314CB1A9E52E10051922A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314CA1A9E52E10051922A /* Security.framework */; };
+		9E1314CD1A9E52E50051922A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314CC1A9E52E50051922A /* StoreKit.framework */; };
+		9E1314CF1A9E52EB0051922A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314CE1A9E52EB0051922A /* libz.dylib */; };
+		9E1314D11A9E52F00051922A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314D01A9E52F00051922A /* libsqlite3.dylib */; };
+		9E1314D41A9E53800051922A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314D21A9E53800051922A /* Bolts.framework */; };
+		9E1314D51A9E53800051922A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314D31A9E53800051922A /* Parse.framework */; };
 		9E24AC2E1597CF28007C3F3F /* btn_share_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */; };
 		9E24AC2F1597CF28007C3F3F /* btn_share_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */; };
 		9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3115981B2A007C3F3F /* 014_switch_off.png */; };
 		9E24AC3415981B2B007C3F3F /* 014_switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3215981B2B007C3F3F /* 014_switch_on.png */; };
 		9E24AC3615981E93007C3F3F /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3515981E92007C3F3F /* alarm.wav */; };
 		9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */; };
-		9E24AC3B15982176007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3915982173007C3F3F /* 014_switch_off.png */; };
-		9E24AC3C15982176007C3F3F /* 014_switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3A15982173007C3F3F /* 014_switch_on.png */; };
-		9E9E704F159CEDF500EF996F /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E704E159CEDF500EF996F /* Appirater.m */; };
 		9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7050159CEF4700EF996F /* CFNetwork.framework */; };
 		9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */; };
-		9EC4C68317BDFD0900C53ADD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC4C68217BDFD0900C53ADD /* libFlurry.a */; };
+		9ECB456E1A9CC98D00D5E48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECB456D1A9CC98D00D5E48C /* Main.storyboard */; };
 		9EDD168215BF98070072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
-		9EDD168615BF99410072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168415BF99410072860A /* Localizable.strings */; };
-		9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168715BF9F280072860A /* FlipsideViewController.xib */; };
-		9EDD168B15BF9F280072860A /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168815BF9F280072860A /* MainViewController_iPad.xib */; };
-		9EDD168C15BF9F280072860A /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */; };
 		9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD168115BF98070072860A /* AttributeConfigurator.m */; };
 		9EDD169315C090B20072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD169115C090B20072860A /* Localizable.strings */; };
-		9EDD169715C092910072860A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD169515C092910072860A /* Localizable.strings */; };
 		9EEF43E315993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */; };
 		9EEF43E415993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */; };
 		9EEF43E615993FA800B56A75 /* ZZZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF43E515993FA800B56A75 /* ZZZ.png */; };
@@ -75,6 +79,19 @@
 		9E0C9B9E14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LazyAlarmTests.h; sourceTree = "<group>"; };
 		9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyAlarmTests.m; sourceTree = "<group>"; };
+		9E1314BD1A9E4F500051922A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		9E1314BE1A9E4F500051922A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		9E1314C11A9E509A0051922A /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		9E1314C21A9E509A0051922A /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		9E1314C41A9E52D30051922A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9E1314C61A9E52D70051922A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9E1314C81A9E52DB0051922A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9E1314CA1A9E52E10051922A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9E1314CC1A9E52E50051922A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9E1314CE1A9E52EB0051922A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9E1314D01A9E52F00051922A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9E1314D21A9E53800051922A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		9E1314D31A9E53800051922A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_off@2x.png"; sourceTree = "<group>"; };
 		9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_on@2x.png"; sourceTree = "<group>"; };
 		9E24AC3115981B2A007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
@@ -83,19 +100,11 @@
 		9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9E24AC3915982173007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
 		9E24AC3A15982173007C3F3F /* 014_switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_on.png; sourceTree = "<group>"; };
-		9E9E704D159CEDF500EF996F /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		9E9E704E159CEDF500EF996F /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		9E9E7050159CEF4700EF996F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9EC4C68117BDFD0900C53ADD /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		9EC4C68217BDFD0900C53ADD /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		9ECB456D1A9CC98D00D5E48C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9EDD168015BF98070072860A /* AttributeConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeConfigurator.h; sourceTree = "<group>"; };
 		9EDD168115BF98070072860A /* AttributeConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeConfigurator.m; sourceTree = "<group>"; };
-		9EDD168515BF99410072860A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
-		9EDD168715BF9F280072860A /* FlipsideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlipsideViewController.xib; sourceTree = "<group>"; };
-		9EDD168815BF9F280072860A /* MainViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPad.xib; sourceTree = "<group>"; };
-		9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPhone.xib; sourceTree = "<group>"; };
-		9EDD169615C092910072860A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiquidCrystal-Bold.otf"; sourceTree = "<group>"; };
 		9EEF43E515993FA800B56A75 /* ZZZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ.png; sourceTree = "<group>"; };
 		9EEF43E715993FD700B56A75 /* ZZZ_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZZZ_57.png; sourceTree = "<group>"; };
@@ -106,13 +115,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */,
+				9E1314D11A9E52F00051922A /* libsqlite3.dylib in Frameworks */,
+				9E1314CF1A9E52EB0051922A /* libz.dylib in Frameworks */,
+				9E1314CD1A9E52E50051922A /* StoreKit.framework in Frameworks */,
+				9E1314CB1A9E52E10051922A /* Security.framework in Frameworks */,
+				9E1314C91A9E52DB0051922A /* QuartzCore.framework in Frameworks */,
+				9E1314C71A9E52D70051922A /* MobileCoreServices.framework in Frameworks */,
+				9E1314D51A9E53800051922A /* Parse.framework in Frameworks */,
+				9E1314C51A9E52D30051922A /* CoreLocation.framework in Frameworks */,
 				9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */,
 				9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */,
+				9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */,
+				9E1314C01A9E4F500051922A /* Fabric.framework in Frameworks */,
 				9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */,
 				9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */,
 				9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */,
-				9EC4C68317BDFD0900C53ADD /* libFlurry.a in Frameworks */,
+				9E1314BF1A9E4F500051922A /* Crashlytics.framework in Frameworks */,
+				9E1314D41A9E53800051922A /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +151,14 @@
 		9E0C9B5E14ECB5CA00FF4C8D = {
 			isa = PBXGroup;
 			children = (
+				9E1314BD1A9E4F500051922A /* Crashlytics.framework */,
+				9E1314BE1A9E4F500051922A /* Fabric.framework */,
 				9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */,
 				9E9E7050159CEF4700EF996F /* CFNetwork.framework */,
 				9EEF43E715993FD700B56A75 /* ZZZ_57.png */,
 				9EEF43E515993FA800B56A75 /* ZZZ.png */,
+				9E1314D21A9E53800051922A /* Bolts.framework */,
+				9E1314D31A9E53800051922A /* Parse.framework */,
 				9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */,
 				9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */,
 				9E0C9B9A14ECB5CA00FF4C8D /* LazyAlarmTests */,
@@ -156,6 +179,13 @@
 		9E0C9B6C14ECB5CA00FF4C8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E1314D01A9E52F00051922A /* libsqlite3.dylib */,
+				9E1314CE1A9E52EB0051922A /* libz.dylib */,
+				9E1314CC1A9E52E50051922A /* StoreKit.framework */,
+				9E1314CA1A9E52E10051922A /* Security.framework */,
+				9E1314C81A9E52DB0051922A /* QuartzCore.framework */,
+				9E1314C61A9E52D70051922A /* MobileCoreServices.framework */,
+				9E1314C41A9E52D30051922A /* CoreLocation.framework */,
 				9E0C9B6D14ECB5CA00FF4C8D /* UIKit.framework */,
 				9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */,
 				9E0C9B7114ECB5CA00FF4C8D /* CoreGraphics.framework */,
@@ -167,10 +197,10 @@
 		9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				9E1314C11A9E509A0051922A /* Appirater.h */,
+				9E1314C21A9E509A0051922A /* Appirater.m */,
 				9EDD168015BF98070072860A /* AttributeConfigurator.h */,
 				9EDD168115BF98070072860A /* AttributeConfigurator.m */,
-				9EC4C68017BDFD0900C53ADD /* Flurry */,
-				9E9E704C159CEDF500EF996F /* Appirator */,
 				9E24AC3915982173007C3F3F /* 014_switch_off.png */,
 				9E24AC3A15982173007C3F3F /* 014_switch_on.png */,
 				9E24AC3515981E92007C3F3F /* alarm.wav */,
@@ -184,6 +214,7 @@
 				9E0C9B8014ECB5CA00FF4C8D /* MainViewController.m */,
 				9E0C9B8214ECB5CA00FF4C8D /* FlipsideViewController.h */,
 				9E0C9B8314ECB5CA00FF4C8D /* FlipsideViewController.m */,
+				9ECB456D1A9CC98D00D5E48C /* Main.storyboard */,
 				9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */,
 			);
 			path = LazyAlarm;
@@ -192,11 +223,6 @@
 		9E0C9B7414ECB5CA00FF4C8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9EDD168715BF9F280072860A /* FlipsideViewController.xib */,
-				9EDD168815BF9F280072860A /* MainViewController_iPad.xib */,
-				9EDD168915BF9F280072860A /* MainViewController_iPhone.xib */,
-				9EDD168315BF99410072860A /* fr.lproj */,
-				9EDD167815BF97800072860A /* en.lproj */,
 				9EEF43E215993A3700B56A75 /* LiquidCrystal-Bold.otf */,
 				9E0C9B7514ECB5CA00FF4C8D /* LazyAlarm-Info.plist */,
 				9E0C9B7914ECB5CA00FF4C8D /* main.m */,
@@ -224,40 +250,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9E9E704C159CEDF500EF996F /* Appirator */ = {
-			isa = PBXGroup;
-			children = (
-				9E9E704D159CEDF500EF996F /* Appirater.h */,
-				9E9E704E159CEDF500EF996F /* Appirater.m */,
-			);
-			path = Appirator;
-			sourceTree = "<group>";
-		};
-		9EC4C68017BDFD0900C53ADD /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				9EC4C68117BDFD0900C53ADD /* Flurry.h */,
-				9EC4C68217BDFD0900C53ADD /* libFlurry.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
-		9EDD167815BF97800072860A /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				9EDD169515C092910072860A /* Localizable.strings */,
-			);
-			name = en.lproj;
-			sourceTree = "<group>";
-		};
-		9EDD168315BF99410072860A /* fr.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				9EDD168415BF99410072860A /* Localizable.strings */,
-			);
-			path = fr.lproj;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +260,7 @@
 				9E0C9B6514ECB5CA00FF4C8D /* Sources */,
 				9E0C9B6614ECB5CA00FF4C8D /* Frameworks */,
 				9E0C9B6714ECB5CA00FF4C8D /* Resources */,
+				9E1314BC1A9E4F350051922A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,7 +288,7 @@
 			name = LazyAlarmTests;
 			productName = LazyAlarmTests;
 			productReference = 9E0C9B9314ECB5CA00FF4C8D /* LazyAlarmTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -303,7 +296,13 @@
 		9E0C9B6014ECB5CA00FF4C8D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastTestingUpgradeCheck = 0610;
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					9E0C9B6814ECB5CA00FF4C8D = {
+						DevelopmentTeam = H799H8B8DD;
+					};
+				};
 			};
 			buildConfigurationList = 9E0C9B6314ECB5CA00FF4C8D /* Build configuration list for PBXProject "LazyAlarm" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -334,17 +333,11 @@
 				9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */,
 				9E24AC3415981B2B007C3F3F /* 014_switch_on.png in Resources */,
 				9E24AC3615981E93007C3F3F /* alarm.wav in Resources */,
-				9E24AC3B15982176007C3F3F /* 014_switch_off.png in Resources */,
-				9E24AC3C15982176007C3F3F /* 014_switch_on.png in Resources */,
 				9EEF43E315993A3700B56A75 /* LiquidCrystal-Bold.otf in Resources */,
 				9EEF43E615993FA800B56A75 /* ZZZ.png in Resources */,
+				9ECB456E1A9CC98D00D5E48C /* Main.storyboard in Resources */,
 				9EEF43E815993FD800B56A75 /* ZZZ_57.png in Resources */,
-				9EDD168615BF99410072860A /* Localizable.strings in Resources */,
-				9EDD168A15BF9F280072860A /* FlipsideViewController.xib in Resources */,
-				9EDD168B15BF9F280072860A /* MainViewController_iPad.xib in Resources */,
-				9EDD168C15BF9F280072860A /* MainViewController_iPhone.xib in Resources */,
 				9EDD169315C090B20072860A /* Localizable.strings in Resources */,
-				9EDD169715C092910072860A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +366,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		9E1314BC1A9E4F350051922A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 70160b7dec925a91c6fe09e38bf1f8659c1eda41 0fa711cea5cca0c6a4b57c1a8955f0518514bfdd7a9e6f28b3eca2c60d905a9c";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -380,12 +386,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1314C31A9E509A0051922A /* Appirater.m in Sources */,
 				9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */,
 				9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */,
 				9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */,
 				9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */,
 				9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */,
-				9E9E704F159CEDF500EF996F /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,14 +423,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		9EDD168415BF99410072860A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EDD168515BF99410072860A /* fr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		9EDD169115C090B20072860A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,14 +431,6 @@
 			path = /Users/mitrenegade12/Desktop/Projects/LazyAlarm/LazyAlarm;
 			sourceTree = "<absolute>";
 		};
-		9EDD169515C092910072860A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EDD169615C092910072860A /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -448,10 +438,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -461,10 +458,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -474,14 +476,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -496,18 +509,17 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/LazyAlarm/FlurryAnalytics\"",
-					"\"$(SRCROOT)/LazyAlarm/Flurry\"",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -516,20 +528,19 @@
 		9E0C9BA714ECB5CA00FF4C8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/LazyAlarm/FlurryAnalytics\"",
-					"\"$(SRCROOT)/LazyAlarm/Flurry\"",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "c234a43e-da76-4087-9a0b-5531ae287b44";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

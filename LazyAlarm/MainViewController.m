@@ -25,8 +25,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //lazySwitch.transform = CGAffineTransformMakeScale(3, 3);
-    bIsLazy = NO;
-    [self setSwitchToLazy:bIsLazy];    
+    bIsLazy = [[[NSUserDefaults standardUserDefaults] objectForKey:kKeyAlarmMode] boolValue];
+
+    [self alarmFromDefaults];
+    [self setSwitchToLazy:bIsLazy];
+    [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
+
+    if (!TESTING) {
+        [labelDebug setHidden:YES];
+    }
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    [self.view addGestureRecognizer:tap];
 }
 - (void)viewDidUnload
 {
@@ -35,128 +45,129 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [titleLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyTitle", nil, nil, @"I want to be lazy:", @"Title text")];
-     //NS_LocalizedStringWithDefaultValue(@"LazyTitle", @"Localizable", [NSBundle mainBundle], @"DEFAULT: I want to be lazy:", @"Title text")];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [Flurry logPageView];
-}
-
--(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    // check orientation
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
-        // code for landscape orientation      
-        [titleLabel setFrame:CGRectMake(80, 60, 205, 70)];
-        [lazySwitch setFrame:CGRectMake(330, 50, 105, 140)];
-        [amILazy setFrame:CGRectMake(80, 140, 205, 70)];
-        [lazyLabel setFrame:CGRectMake(108, 218, 265, 60)];
-        [showInfo setFrame:CGRectMake(442, 261, 18, 19)];
-        [Flurry logEvent:@"OrientationChangeLandscape"];
+#pragma mark defaults
+-(void)alarmFromDefaults {
+    NSNumber *hour, *minute;
+    hour = [_defaults objectForKey:kKeyLazyAlarmHour];
+    minute = [_defaults objectForKey:kKeyLazyAlarmMinute];
+    if (hour && minute) {
+        NSDate * now = [NSDate date];
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
+        [comps setHour:[hour intValue]];
+        [comps setMinute:[minute intValue]];
+        [comps setSecond:0];
+        lazyAlarm = [cal dateFromComponents:comps];
+        if ([lazyAlarm timeIntervalSinceNow] < 0)
+            lazyAlarm = [lazyAlarm dateByAddingTimeInterval:24*3600];
     }
-    else {
-        [titleLabel setFrame:CGRectMake(8, 68, 205, 70)];
-        [lazySwitch setFrame:CGRectMake(108, 171, 105, 140)];
-        [amILazy setFrame:CGRectMake(179, 54, 141, 98)];
-        [lazyLabel setFrame:CGRectMake(28, 333, 265, 60)];
-        [showInfo setFrame:CGRectMake(282, 421, 18, 19)];
-        [Flurry logEvent:@"OrientationChangePortrait"];
+
+    hour = [_defaults objectForKey:kKeyNormalAlarmHour];
+    minute = [_defaults objectForKey:kKeyNormalAlarmMinute];
+    if (hour && minute) {
+        NSDate * now = [NSDate date];
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
+        [comps setHour:[hour intValue]];
+        [comps setMinute:[minute intValue]];
+        [comps setSecond:0];
+        normalAlarm = [cal dateFromComponents:comps];
+        if ([normalAlarm timeIntervalSinceNow] < 0)
+            normalAlarm = [normalAlarm dateByAddingTimeInterval:24*3600];
     }
-    [icon setHidden:YES];
+
+    [self updateDebugDetails];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
+-(void)updateDebugDetails {
+#if TESTING
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:SS"];
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    [self checkOrientation:interfaceOrientation];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
+    NSString *details = @"Alarm details: \n";
+    if (lazyAlarm) {
+        NSString *dateString = [dateFormatter stringFromDate:lazyAlarm];
+        details = [NSString stringWithFormat:@"%@Lazy: %@\n", details, dateString];
     }
+    if (normalAlarm) {
+        NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
+        details = [NSString stringWithFormat:@"%@Normal: %@\n", details, dateString];
+    }
+
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+    NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *n in notifications) {
+        NSDate *date = n.fireDate;
+        NSString *dateString = [dateFormatter2 stringFromDate:date];
+        details = [NSString stringWithFormat:@"%@Scheduled notification: %@\n", details, dateString];
+    }
+    labelDebug.text = details;
+#endif
 }
 
 #pragma mark - Flipside View Controller
 
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarms:(NSMutableDictionary *)alarms
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate *)alarm options:(AlarmOptions)options
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self dismissModalViewControllerAnimated:YES];
-    } else {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    NSDate * now = alarm;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
+    NSInteger hour = comps.hour;
+    NSInteger min = comps.minute;
+    if (bIsLazy) {
+        lazyAlarm = alarm;
+        [_defaults setObject:@(hour) forKey:kKeyLazyAlarmHour];
+        [_defaults setObject:@(min) forKey:kKeyLazyAlarmMinute];
+        [_defaults setObject:@(options) forKey:kKeyLazyAlarmOptions];
+    }
+    else {
+        normalAlarm = alarm;
+        [_defaults setObject:@(hour) forKey:kKeyNormalAlarmHour];
+        [_defaults setObject:@(min) forKey:kKeyNormalAlarmMinute];
+        [_defaults setObject:@(options) forKey:kKeyNormalAlarmOptions];
     }
 
-    NSDate * normal = [alarms objectForKey:@"normal"];
-    NSDate * lazy = [alarms objectForKey:@"lazy"];
-    normalAlarm = [[alarms objectForKey:@"normal"] copy];
-    lazyAlarm = [[alarms objectForKey:@"lazy"] copy];
-    
     // set alarm, and redisplay message
     [self setSwitchToLazy:bIsLazy];
-    /*
-    NSDate * alarmDate = normalAlarm;
-    if (bIsLazy)
-        alarmDate = lazyAlarm;
-    [self setAlarmAtDate:alarmDate];
-     */
-    /*
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:SS"];
-    NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
-    NSLog(@"FlipSide finished: Normal alarm set to %@", dateString);
-    NSString *dateString2 = [dateFormatter stringFromDate:lazyAlarm];
-    NSLog(@"FlipSide finished: Lazy alarm set to %@", dateString);
-    */
-    [self doSetAlarm:nil];
-    
-    [self showAllNotifications];
-}
+    [self setAlarmAtDate:alarm];
 
-- (IBAction)showInfo:(id)sender
-{
-    [Flurry logEvent:@"ClickShowInfoButton"];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-        controller.delegate = self;
-        controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:controller animated:YES];
-    } else {
-        if (!self.flipsidePopoverController) {
-            FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-            controller.delegate = self;
-            
-            self.flipsidePopoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-        }
-        if ([self.flipsidePopoverController isPopoverVisible]) {
-            [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        } else {
-            [self.flipsidePopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-    }
+    [self showAllNotifications];
 }
 
 -(void)setAlarmAtDate:(NSDate*)date {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    AlarmOptions options = [[_defaults objectForKey:bIsLazy?kKeyLazyAlarmOptions:kKeyNormalAlarmOptions] intValue];
+    if (options == AlarmOptionsOff) {
+        [self updateDebugDetails];
+        return;
+    }
+    int minutes = 0;
+    if (options == AlarmOptionsSmall) {
+        minutes = arc4random()%15;
+    }
+    else if (options == AlarmOptionsLarge) {
+        minutes = arc4random()%60;
+    }
+
     UILocalNotification *notif1 = [[UILocalNotification alloc] init];
-    if ([date compare:[NSDate date]] == NSOrderedAscending) {
+    if ([date timeIntervalSinceNow] <= 0) {
         date = [NSDate dateWithTimeInterval:3600*24 sinceDate:date];
     }
+
+    if (bIsLazy) {
+        // set random time after lazy date, but after now
+        date = [date dateByAddingTimeInterval:minutes*60];
+    }
+    else {
+        // set random time before normal alarm, but after now
+        NSDate *newDate = [date dateByAddingTimeInterval:-minutes*60];
+        if ([newDate timeIntervalSinceNow] > 0)
+            date = newDate;
+    }
+
     notif1.fireDate = date;
     //notif1.soundName = UILocalNotificationDefaultSoundName;
     notif1.alertBody = @"Alarm";
@@ -176,60 +187,47 @@
     else {
         NSLog(@"No alarm time set: all alarms cancelled.");
     }
+
+    [self updateDebugDetails];
 }
 
 -(IBAction)didClickSwitch:(id)sender {
-    [self toggleSwitch];
+    bIsLazy = !bIsLazy;
+    [[NSUserDefaults standardUserDefaults] setObject:@(bIsLazy) forKey:kKeyAlarmMode];
+
+    [PFAnalytics trackEventInBackground:@"alarm_switched" dimensions:@{@"mode":bIsLazy?@"Lazy":@"Normal"} block:nil];
+
+    [self setSwitchToLazy:bIsLazy];
+    [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
+    [self showAllNotifications];
     NSLog(@"DidClickSwitch! value now %d", bIsLazy);
-    /*
-    NSDate * alarmDate = normalAlarm;
-    if (bIsLazy)
-        alarmDate = lazyAlarm;
-    [self setAlarmAtDate:alarmDate];
-     */
 }
 
 -(void)setSwitchToLazy:(BOOL)lazy {
+    [titleLabel setText:@"Do I want to sleep in?"];
+    //[titleLabel setText:@"I want to wake up on time"];
+
     NSLog(@"Calling setSwitchToLazy: %d", lazy);
     if (lazy) {
-        [Flurry logEvent:@"DidSwitchToLazy"];
+        AlarmOptions options = [[_defaults objectForKey:kKeyLazyAlarmOptions] intValue];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_on.png"] forState:UIControlStateNormal];
-        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"YesLabel", nil, nil, @"YES", @"Affirmative statement")];
-         //NS_LocalizedStringWithDefaultValue(@"YesLabel", nil, [NSBundle mainBundle], @"DEFAULT: YES", @"Affirmative statement")];
-        if (lazyAlarm) {
-            [lazyLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"You are being lazy and sleeping in", @"Lazy alarm set message")];
-            //NS_LocalizedStringWithDefaultValue(@"LazyAlarmSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: You are being lazy and sleeping in!", @"Lazy alarm set message")];
-//            [self setAlarmAtDate:lazyAlarm];
+        if (lazyAlarm && options != AlarmOptionsOff) {
+            [detailLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"Yes! You are being lazy and sleeping in", @"Lazy alarm set message")];
         }
         else {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyAlarmNotSetMessage", nil, nil,@"No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
-             //NS_LocalizedStringWithDefaultValue(@"LazyAlarmNotSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
-//            [self setAlarmAtDate:nil];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyAlarmNotSetMessage", nil, nil,@"No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
         }
     }
     else {
-        [Flurry logEvent:@"DidSwitchToNotLazy"];
+        AlarmOptions options = [[_defaults objectForKey:kKeyNormalAlarmOptions] intValue];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_off.png"] forState:UIControlStateNormal];
-        [amILazy setText:ConfiguredAttributeWithDefaultValue(@"NoLabel",nil, nil, @"NO", @"Negatory statement")];
-         //NS_LocalizedStringWithDefaultValue(@"NoLabel", nil, [NSBundle mainBundle], @"DEFAULT: NO", @"Negatory statement")];
-        if (normalAlarm) {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
-             //NS_LocalizedStringWithDefaultValue(@"NonlazyAlarmSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
-//            [self setAlarmAtDate:normalAlarm];
+        if (normalAlarm && options != AlarmOptionsOff) {
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
         }
         else {
-            [lazyLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
-             //NS_LocalizedStringWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, [NSBundle mainBundle], @"DEFAULT: No alarm currently set!", @"Nonlazy alarm not set message")];
-//            [self setAlarmAtDate:nil];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
         }
     }
-    [self doSetAlarm:nil];
-}
--(void)toggleSwitch {
-    bIsLazy = !bIsLazy;
-    [self setSwitchToLazy:bIsLazy];
-    
-    [self showAllNotifications];
 }
 
 -(void)showAllNotifications {
@@ -246,14 +244,6 @@
     }
 }
 
--(IBAction)doSetAlarm:(id)sender {
-    NSLog(@"***Did click set alarm!***");
-    NSDate * alarmDate = normalAlarm;
-    if (bIsLazy)
-        alarmDate = lazyAlarm;
-    [self setAlarmAtDate:alarmDate];
-}
-
 -(void)autoUpdateAlarm:(NSString *)alarmType {
     if ([alarmType isEqualToString:@"Normal Alarm"]) {
         [self setAlarmAtDate:normalAlarm];
@@ -263,5 +253,26 @@
     }
 }
 
+-(IBAction)didClickInfo:(id)sender {
+    // only log it
+    [PFAnalytics trackEventInBackground:@"flip_segue" dimensions:@{@"source":@"info button"} block:nil];
+}
 
+-(void)handleGesture:(UIGestureRecognizer *)gesture {
+    CGPoint point = [gesture locationInView:self.view];
+    if ([gesture isKindOfClass:[UITapGestureRecognizer class]] && CGRectContainsPoint(detailLabel.frame, point) && gesture.state == UIGestureRecognizerStateEnded) {
+        [PFAnalytics trackEventInBackground:@"flip_segue" dimensions:@{@"source":@"tap on label"} block:nil];
+        [self performSegueWithIdentifier:@"FlipSegue" sender:nil];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"FlipSegue"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        FlipsideViewController *controller = nav.viewControllers[0];
+        controller.delegate = self;
+        controller.isEditingLazyAlarm = bIsLazy;
+        controller.currentAlarm = bIsLazy?lazyAlarm:normalAlarm;
+    }
+}
 @end

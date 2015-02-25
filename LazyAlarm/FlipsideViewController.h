@@ -7,29 +7,35 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Flurry.h"
 #import "Appirater.h"
 @class FlipsideViewController;
 
+typedef enum AlarmOptionsEnum {
+    AlarmOptionsOff,
+    AlarmOptionsExact,
+    AlarmOptionsSmall, // add a small amount of randomized time (0 - 15 mins)
+    AlarmOptionsLarge // add a large amount of randomized time (0 - 60 mins)
+} AlarmOptions;
+
 @protocol FlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarms:(NSMutableDictionary*)alarms;
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate*)alarm options:(AlarmOptions)options;
 @end
 
 @interface FlipsideViewController : UIViewController <UIPickerViewDelegate>
 {
-    IBOutlet UISegmentedControl * selector;
+    IBOutlet UILabel *labelAlarmState;
     IBOutlet UIDatePicker * timePicker;
-    IBOutlet UISwitch * lazyOnOff;
-    IBOutlet UINavigationItem * navItem;
-    NSDate * normalAlarm;
-    NSDate * lazyAlarm;
-    BOOL bLazyIsOn;
+
+    IBOutlet UILabel *labelDetails;
+    IBOutlet UISlider *sliderOptions;
+    AlarmOptions options;
 }
 @property (weak, nonatomic) IBOutlet id <FlipsideViewControllerDelegate> delegate;
+@property (nonatomic) BOOL isEditingLazyAlarm;
+@property (nonatomic) NSDate *currentAlarm;
 
 - (IBAction)done:(id)sender;
-- (IBAction)didChangeTime:(id)sender;
 - (IBAction)didSwitchAlarm:(id)sender;
-- (IBAction)didToggleLazyAlarm:(id)sender;
--(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation;
+- (IBAction)didChangeSlider:(id)sender;
+
 @end
