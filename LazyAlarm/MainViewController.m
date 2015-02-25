@@ -56,13 +56,13 @@
     if (hour && minute) {
         NSDate * now = [NSDate date];
         NSCalendar *cal = [NSCalendar currentCalendar];
-        NSDateComponents * comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
+        NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
         [comps setHour:[hour intValue]];
         [comps setMinute:[minute intValue]];
         [comps setSecond:0];
         lazyAlarm = [cal dateFromComponents:comps];
         if ([lazyAlarm timeIntervalSinceNow] < 0)
-            lazyAlarm = [normalAlarm dateByAddingTimeInterval:24*3600];
+            lazyAlarm = [lazyAlarm dateByAddingTimeInterval:24*3600];
     }
 
     hour = [_defaults objectForKey:kKeyNormalAlarmHour];
@@ -70,7 +70,7 @@
     if (hour && minute) {
         NSDate * now = [NSDate date];
         NSCalendar *cal = [NSCalendar currentCalendar];
-        NSDateComponents * comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
+        NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
         [comps setHour:[hour intValue]];
         [comps setMinute:[minute intValue]];
         [comps setSecond:0];
@@ -115,7 +115,7 @@
 
     NSDate * now = alarm;
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents * comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
+    NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
     NSInteger hour = comps.hour;
     NSInteger min = comps.minute;
     if (bIsLazy) {
@@ -139,7 +139,7 @@
 -(void)setAlarmAtDate:(NSDate*)date {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *notif1 = [[UILocalNotification alloc] init];
-    if ([date compare:[NSDate date]] == NSOrderedAscending) {
+    if ([date timeIntervalSinceNow] <= 0) {
         date = [NSDate dateWithTimeInterval:3600*24 sinceDate:date];
     }
 
@@ -195,7 +195,6 @@
             [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
         }
     }
-    [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
 }
 
 -(void)showAllNotifications {

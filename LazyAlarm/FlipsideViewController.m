@@ -77,7 +77,15 @@
 - (IBAction)done:(id)sender
 {
     [Appirater userDidSignificantEvent:YES];
-    [self.delegate flipsideViewControllerDidFinish:self withAlarm:timePicker.date];
+    NSDate * now = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
+    NSDateComponents * picked = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:timePicker.date];
+    comps.hour = picked.hour;
+    comps.minute = picked.minute;
+    NSDate *date = [cal dateFromComponents:comps];
+
+    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date];
 }
 
 @end
