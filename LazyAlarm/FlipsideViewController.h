@@ -10,8 +10,15 @@
 #import "Appirater.h"
 @class FlipsideViewController;
 
+typedef enum AlarmOptionsEnum {
+    AlarmOptionsOff,
+    AlarmOptionsExact,
+    AlarmOptionsSmall, // add a small amount of randomized time (0 - 15 mins)
+    AlarmOptionsLarge // add a large amount of randomized time (0 - 60 mins)
+} AlarmOptions;
+
 @protocol FlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate*)alarm options:(float)options;
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate*)alarm options:(AlarmOptions)options;
 @end
 
 @interface FlipsideViewController : UIViewController <UIPickerViewDelegate>
@@ -21,6 +28,7 @@
 
     IBOutlet UILabel *labelDetails;
     IBOutlet UISlider *sliderOptions;
+    AlarmOptions options;
 }
 @property (weak, nonatomic) IBOutlet id <FlipsideViewControllerDelegate> delegate;
 @property (nonatomic) BOOL isEditingLazyAlarm;

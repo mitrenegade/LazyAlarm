@@ -32,13 +32,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    BOOL alarmState; // not being used yet
-    if (self.isEditingLazyAlarm) {
-        alarmState = [_defaults boolForKey:kKeyLazyAlarmEnabled];
-    }
-    else {
-        alarmState = [_defaults boolForKey:kKeyNormalAlarmEnabled];
-    }
 
     timePicker.datePickerMode = UIDatePickerModeTime;
     if (self.currentAlarm) {
@@ -47,6 +40,9 @@
     else {
         timePicker.date = [NSDate date];
     }
+
+    options = [[_defaults objectForKey:self.isEditingLazyAlarm?kKeyLazyAlarmOptions:kKeyNormalAlarmOptions] intValue];
+    sliderOptions.value = options;
 
     [self updateAlarmTitle];
     [self updateSliderTitle];
@@ -70,29 +66,37 @@
     if (self.isEditingLazyAlarm) {
         if (sliderOptions.value < 1) {
             labelDetails.text = @"Alarm off";
+            options = AlarmOptionsOff;
         }
         else if (sliderOptions.value < 2) {
             labelDetails.text = @"Wake me at exactly:";
+            options = AlarmOptionsExact;
         }
         else if (sliderOptions.value < 3) {
             labelDetails.text = @"Wake me little after:";
+            options = AlarmOptionsSmall;
         }
         else {
             labelDetails.text = @"Wake me way after:";
+            options = AlarmOptionsLarge;
         }
     }
     else {
         if (sliderOptions.value < 1) {
             labelDetails.text = @"Alarm off";
+            options = AlarmOptionsOff;
         }
         else if (sliderOptions.value < 2) {
             labelDetails.text = @"Wake me at exactly:";
+            options = AlarmOptionsExact;
         }
         else if (sliderOptions.value < 3) {
             labelDetails.text = @"Wake me little before:";
+            options = AlarmOptionsSmall;
         }
         else {
             labelDetails.text = @"Wake me way before:";
+            options = AlarmOptionsLarge;
         }
     }
 }
@@ -121,7 +125,7 @@
     comps.minute = picked.minute;
     NSDate *date = [cal dateFromComponents:comps];
 
-    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date options:sliderOptions.value];
+    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date options:options];
 }
 
 @end

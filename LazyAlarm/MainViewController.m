@@ -42,12 +42,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [titleLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyTitle", nil, nil, @"I want to be lazy:", @"Title text")];
-}
-
 #pragma mark defaults
 -(void)alarmFromDefaults {
     NSNumber *hour, *minute;
@@ -111,7 +105,7 @@
 
 #pragma mark - Flipside View Controller
 
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate *)alarm options:(float)options
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate *)alarm options:(AlarmOptions)options
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -124,11 +118,13 @@
         lazyAlarm = alarm;
         [_defaults setObject:@(hour) forKey:kKeyLazyAlarmHour];
         [_defaults setObject:@(min) forKey:kKeyLazyAlarmMinute];
+        [_defaults setObject:@(options) forKey:kKeyLazyAlarmOptions];
     }
     else {
         normalAlarm = alarm;
         [_defaults setObject:@(hour) forKey:kKeyNormalAlarmHour];
         [_defaults setObject:@(min) forKey:kKeyNormalAlarmMinute];
+        [_defaults setObject:@(options) forKey:kKeyNormalAlarmOptions];
     }
 
     // set alarm, and redisplay message
@@ -140,12 +136,24 @@
 
 -(void)setAlarmAtDate:(NSDate*)date {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    AlarmOptions options = [[_defaults objectForKey:bIsLazy?kKeyLazyAlarmOptions:kKeyNormalAlarmOptions] intValue];
+    if (options == AlarmOptionsOff) {
+        [self updateDebugDetails];
+        return;
+    }
+    int minutes = 0;
+    if (options == AlarmOptionsSmall) {
+        minutes = arc4random()%15;
+    }
+    else if (options == AlarmOptionsLarge) {
+        minutes = arc4random()%60;
+    }
+
     UILocalNotification *notif1 = [[UILocalNotification alloc] init];
     if ([date timeIntervalSinceNow] <= 0) {
         date = [NSDate dateWithTimeInterval:3600*24 sinceDate:date];
     }
 
-    int minutes = arc4random()%60;
     if (bIsLazy) {
         // set random time after lazy date, but after now
         date = [date dateByAddingTimeInterval:minutes*60];
@@ -191,20 +199,25 @@
 }
 
 -(void)setSwitchToLazy:(BOOL)lazy {
+    [titleLabel setText:@"Do I want to sleep in?"];
+    //[titleLabel setText:@"I want to wake up on time"];
+
     NSLog(@"Calling setSwitchToLazy: %d", lazy);
     if (lazy) {
+        AlarmOptions options = [[_defaults objectForKey:kKeyLazyAlarmOptions] intValue];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_on.png"] forState:UIControlStateNormal];
-        if (lazyAlarm) {
-            [detailLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"You are being lazy and sleeping in", @"Lazy alarm set message")];
+        if (lazyAlarm && options != AlarmOptionsOff) {
+            [detailLabel setText: ConfiguredAttributeWithDefaultValue(@"LazyAlarmSetMessage", nil, nil,@"Yes! You are being lazy and sleeping in", @"Lazy alarm set message")];
         }
         else {
             [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"LazyAlarmNotSetMessage", nil, nil,@"No alarm currently set for sleeping in!", @"Lazy alarm not set message")];
         }
     }
     else {
+        AlarmOptions options = [[_defaults objectForKey:kKeyNormalAlarmOptions] intValue];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_off.png"] forState:UIControlStateNormal];
-        if (normalAlarm) {
-            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
+        if (normalAlarm && options != AlarmOptionsOff) {
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"No! You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
         }
         else {
             [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];

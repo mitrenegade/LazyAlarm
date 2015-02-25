@@ -16,8 +16,8 @@
 #define TESTING 1
 
 #define kKeyAlarmMode @"alarm:mode:islazy"
-#define kKeyLazyAlarmEnabled @"alarm:enabled:lazy"
-#define kKeyNormalAlarmEnabled @"alarm:enabled:normal"
+#define kKeyLazyAlarmOptions @"alarm:options:lazy"
+#define kKeyNormalAlarmOptions @"alarm:options:normal"
 
 #define kKeyLazyAlarmHour @"alarm:hour:lazy"
 #define kKeyLazyAlarmMinute @"alarm:minute:lazy"
