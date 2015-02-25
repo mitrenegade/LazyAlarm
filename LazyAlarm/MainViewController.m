@@ -85,22 +85,24 @@
 -(void)updateDebugDetails {
 #if TESTING
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+    [dateFormatter setDateFormat:@"HH:mm:SS"];
 
     NSString *details = @"Alarm details: \n";
     if (lazyAlarm) {
         NSString *dateString = [dateFormatter stringFromDate:lazyAlarm];
-        details = [NSString stringWithFormat:@"%@Lazy alarm: %@\n", details, dateString];
+        details = [NSString stringWithFormat:@"%@Lazy: %@\n", details, dateString];
     }
     if (normalAlarm) {
         NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
-        details = [NSString stringWithFormat:@"%@Normal alarm: %@\n", details, dateString];
+        details = [NSString stringWithFormat:@"%@Normal: %@\n", details, dateString];
     }
 
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
     NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     for (UILocalNotification *n in notifications) {
         NSDate *date = n.fireDate;
-        NSString *dateString = [dateFormatter stringFromDate:date];
+        NSString *dateString = [dateFormatter2 stringFromDate:date];
         details = [NSString stringWithFormat:@"%@Scheduled notification: %@\n", details, dateString];
     }
     labelDebug.text = details;
@@ -171,6 +173,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@(bIsLazy) forKey:kKeyAlarmMode];
 
     [self setSwitchToLazy:bIsLazy];
+    [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
     [self showAllNotifications];
     NSLog(@"DidClickSwitch! value now %d", bIsLazy);
 }
