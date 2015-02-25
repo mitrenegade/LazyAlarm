@@ -12,3 +12,14 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define kKeyAlarmMode @"alarm:mode:islazy"
+#define kKeyLazyAlarmEnabled @"alarm:enabled:lazy"
+#define kKeyNormalAlarmEnabled @"alarm:enabled:normal"
+
+#define kKeyLazyAlarmHour @"alarm:hour:lazy"
+#define kKeyLazyAlarmMinute @"alarm:minute:lazy"
+#define kKeyNormalAlarmHour @"alarm:hour:normal"
+#define kKeyNormalAlarmMinute @"alarm:minute:normal"
+
+#define _defaults [NSUserDefaults standardUserDefaults]

@@ -121,29 +121,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="STp-pl-JLh">
-                                <rect key="frame" x="158" y="28" width="284" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="WBG-Fw-EDr"/>
-                                    <constraint firstAttribute="width" constant="284" id="kXd-XF-AAa"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="didSwitchAlarm:" destination="Ppf-Eh-rbR" eventType="touchUpInside" id="5oS-dZ-Vup"/>
-                                </connections>
-                            </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKL-ZF-uqr">
                                 <rect key="frame" x="276" y="87" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="9uK-34-RTd"/>
                                     <constraint firstAttribute="height" constant="31" id="giv-Y0-FVg"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="didToggleLazyAlarm:" destination="Ppf-Eh-rbR" eventType="touchUpInside" id="Ez3-h0-a5k"/>
                                 </connections>
@@ -166,17 +151,27 @@
                                     <action selector="didChangeTime:" destination="Ppf-Eh-rbR" eventType="touchUpInside" id="2zY-0R-d8t"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm State" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3h7-xK-fKq">
+                                <rect key="frame" x="173" y="25" width="254" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="YRr-fP-1S1"/>
+                                    <constraint firstAttribute="height" constant="44" id="g7T-h0-1O2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="STp-pl-JLh" secondAttribute="centerX" id="10S-lr-41J"/>
                             <constraint firstItem="4dQ-vQ-wxS" firstAttribute="leading" secondItem="LDe-um-lnB" secondAttribute="leadingMargin" id="1va-YM-xCF"/>
-                            <constraint firstItem="STp-pl-JLh" firstAttribute="top" secondItem="9Q5-Bz-bfc" secondAttribute="bottom" constant="28" id="3O9-x3-FmM"/>
                             <constraint firstAttribute="centerX" secondItem="oKL-ZF-uqr" secondAttribute="centerX" id="3wm-Lh-WBA"/>
-                            <constraint firstItem="oKL-ZF-uqr" firstAttribute="top" secondItem="STp-pl-JLh" secondAttribute="bottom" constant="31" id="CEm-uF-B2P"/>
+                            <constraint firstItem="3h7-xK-fKq" firstAttribute="top" secondItem="9Q5-Bz-bfc" secondAttribute="bottom" constant="25" id="Iut-wf-1Za"/>
                             <constraint firstItem="n3D-gl-lWC" firstAttribute="top" secondItem="4dQ-vQ-wxS" secondAttribute="bottom" constant="20" id="L2L-sV-3Hp"/>
+                            <constraint firstAttribute="centerX" secondItem="3h7-xK-fKq" secondAttribute="centerX" id="ReN-hm-a6D"/>
                             <constraint firstItem="4dQ-vQ-wxS" firstAttribute="top" secondItem="oKL-ZF-uqr" secondAttribute="bottom" constant="32" id="g6u-BM-w1z"/>
                             <constraint firstItem="4dQ-vQ-wxS" firstAttribute="trailing" secondItem="LDe-um-lnB" secondAttribute="trailingMargin" id="gfz-Yh-v6x"/>
+                            <constraint firstItem="oKL-ZF-uqr" firstAttribute="top" secondItem="3h7-xK-fKq" secondAttribute="bottom" constant="18" id="yd6-nb-Iei"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -188,8 +183,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="labelAlarmState" destination="3h7-xK-fKq" id="dJH-Bu-c7V"/>
                         <outlet property="lazyOnOff" destination="oKL-ZF-uqr" id="5yX-3L-x1c"/>
-                        <outlet property="selector" destination="STp-pl-JLh" id="JOF-Qp-gVw"/>
                         <outlet property="timePicker" destination="4dQ-vQ-wxS" id="YMy-pO-aWf"/>
                     </connections>
                 </viewController>

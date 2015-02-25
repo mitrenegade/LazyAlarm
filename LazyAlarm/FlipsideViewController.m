@@ -16,7 +16,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 480.0);
     }
     return self;
 }
@@ -33,8 +32,36 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    normalAlarm = nil;
-    lazyAlarm = nil;
+    BOOL alarmState; // not being used yet
+    if (self.isEditingLazyAlarm) {
+        alarmState = [_defaults boolForKey:kKeyLazyAlarmEnabled];
+    }
+    else {
+        alarmState = [_defaults boolForKey:kKeyNormalAlarmEnabled];
+    }
+
+    if (self.currentAlarm) {
+        timePicker.date = self.currentAlarm;
+    }
+    else {
+        timePicker.date = [NSDate date];
+    }
+
+    [self updateAlarmTitle];
+}
+
+-(void)updateAlarmTitle {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    [Appirater userDidSignificantEvent:YES];
+    NSDate *currentAlarm = timePicker.date;
+    NSString *dateString = [dateFormatter stringFromDate:currentAlarm];
+    if (!self.isEditingLazyAlarm) {
+        [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Regular alarm set before: %@", dateString]:@"Not set")];
+    }
+    else {
+        [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Lazy alarm set after: %@", dateString]:@"Not set")];
+    }
 }
 
 - (void)viewDidUnload
@@ -44,115 +71,12 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    bLazyIsOn = [lazyOnOff isOn];
-    [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    int alarmIndex = selector.selectedSegmentIndex;
-    if (alarmIndex == 0) {
-        [navItem setTitle:@"Set regular alarm"];
-        if (!normalAlarm)
-            normalAlarm = timePicker.date;
-        else
-            [timePicker setDate:normalAlarm];
-        [lazyOnOff setHidden:YES];
-    }
-    else if (alarmIndex == 1) {
-        [navItem setTitle:@"Set lazy alarm"];
-        if (!lazyAlarm) 
-            lazyAlarm = timePicker.date;
-        else 
-            [timePicker setDate:lazyAlarm];
-        [lazyOnOff setHidden:NO];
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
 #pragma mark - Actions
 
 - (IBAction)done:(id)sender
 {
-    NSMutableDictionary * alarmList = [[NSMutableDictionary alloc] init];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:SS"];
     [Appirater userDidSignificantEvent:YES];
-    if (normalAlarm) {
-        NSString *dateString = [dateFormatter stringFromDate:normalAlarm];
-        NSLog(@"Normal alarm set to %@", dateString);
-        [alarmList setObject:normalAlarm forKey:@"normal"];
-    }
-    if (lazyAlarm) {
-        if (bLazyIsOn) {
-            NSString *dateString = [dateFormatter stringFromDate:lazyAlarm];
-            NSLog(@"Lazy alarm set to %@", dateString);
-            [alarmList setObject:lazyAlarm forKey:@"lazy"];
-        }
-        else {
-            NSLog(@"Lazy alarm set to off!");
-        }
-    }
-          
-    [self.delegate flipsideViewControllerDidFinish:self withAlarms:alarmList];
-}
-
--(IBAction)didChangeTime:(id)sender {
-    int alarmIndex = selector.selectedSegmentIndex;
-    if (alarmIndex == 0)
-        normalAlarm = [timePicker.date copy];
-    else if (alarmIndex == 1)
-        lazyAlarm = [timePicker.date copy];
-}
-
--(IBAction)didSwitchAlarm:(id)sender {
-    int alarmIndex = selector.selectedSegmentIndex;
-    NSLog(@"Did switch alarm to index %d", alarmIndex);
-    if (alarmIndex == 0) {
-        [navItem setTitle:@"Set regular alarm"];
-//        [Flurry logEvent:@"DidChangeRegularAlarmTime"];
-        if (normalAlarm)
-            [timePicker setDate:normalAlarm];
-        else {
-            [timePicker setDate:[NSDate date]];
-            normalAlarm = timePicker.date;
-        }
-        [lazyOnOff setHidden:YES];
-    }
-    if (alarmIndex == 1) {
-        [navItem setTitle:@"Set lazy alarm"];
-//        [Flurry logEvent:@"DidChangeLazyAlarmTime"];
-        if (lazyAlarm)
-            [timePicker setDate:lazyAlarm];
-        else {
-            [timePicker setDate:[NSDate date]];
-            lazyAlarm = timePicker.date;
-        }
-        [lazyOnOff setHidden:NO];
-    }
-}
-
--(IBAction)didToggleLazyAlarm:(id)sender {
-    bLazyIsOn = [lazyOnOff isOn];
-    if (bLazyIsOn) {
-//        [Flurry logEvent:@"DidTurnLazyBackOn"];
-    }
-    else {
-//        [Flurry logEvent:@"DidTurnLazyOff"];
-    }
+    [self.delegate flipsideViewControllerDidFinish:self withAlarm:timePicker.date];
 }
 
 @end
