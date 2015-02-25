@@ -112,7 +112,6 @@
 }
 
 #pragma mark - Actions
-
 - (IBAction)done:(id)sender
 {
     if (options != AlarmOptionsOff) {
@@ -128,6 +127,9 @@
     NSDate *date = [cal dateFromComponents:comps];
 
     [self.delegate flipsideViewControllerDidFinish:self withAlarm:date options:options];
+
+    [PFAnalytics trackEventInBackground:@"alarm_set" dimensions:@{@"mode":self.isEditingLazyAlarm?@"Lazy":@"Normal", @"options":labelDetails.text} block:nil];
+    [PFAnalytics trackEventInBackground:@"alarm_time" dimensions:@{@"hour":[NSString stringWithFormat:@"%d", (int)comps.hour]} block:nil];
 }
 
 @end

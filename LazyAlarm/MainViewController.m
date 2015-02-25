@@ -35,7 +35,7 @@
         [labelDebug setHidden:YES];
     }
 
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setAlarm:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     [self.view addGestureRecognizer:tap];
 }
 - (void)viewDidUnload
@@ -195,6 +195,8 @@
     bIsLazy = !bIsLazy;
     [[NSUserDefaults standardUserDefaults] setObject:@(bIsLazy) forKey:kKeyAlarmMode];
 
+    [PFAnalytics trackEventInBackground:@"alarm_switched" dimensions:@{@"mode":bIsLazy?@"Lazy":@"Normal"} block:nil];
+
     [self setSwitchToLazy:bIsLazy];
     [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
     [self showAllNotifications];
@@ -251,10 +253,17 @@
     }
 }
 
--(void)setAlarm:(UIGestureRecognizer *)gesture {
+-(IBAction)didClickInfo:(id)sender {
+    // only log it
+    [PFAnalytics trackEventInBackground:@"flip_segue" dimensions:@{@"source":@"info button"} block:nil];
+}
+
+-(void)handleGesture:(UIGestureRecognizer *)gesture {
     CGPoint point = [gesture locationInView:self.view];
-    if (CGRectContainsPoint(detailLabel.frame, point))
+    if ([gesture isKindOfClass:[UITapGestureRecognizer class]] && CGRectContainsPoint(detailLabel.frame, point) && gesture.state == UIGestureRecognizerStateEnded) {
+        [PFAnalytics trackEventInBackground:@"flip_segue" dimensions:@{@"source":@"tap on label"} block:nil];
         [self performSegueWithIdentifier:@"FlipSegue" sender:nil];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -55,6 +55,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="didClickInfo:" destination="oZR-We-wiw" eventType="touchUpInside" id="Af7-bu-3BO"/>
                                     <segue destination="gYC-H1-hNh" kind="presentation" identifier="FlipSegue" modalTransitionStyle="flipHorizontal" id="s3V-H4-9dy"/>
                                 </connections>
                             </button>
@@ -98,7 +99,6 @@
                         <outlet property="detailLabel" destination="Wju-Lo-5NH" id="CLm-CS-Kgo"/>
                         <outlet property="labelDebug" destination="H6z-qe-jxB" id="dL9-Ab-LyB"/>
                         <outlet property="lazySwitch" destination="kWu-E7-kH4" id="JTX-jo-yq8"/>
-                        <outlet property="showInfo" destination="HDq-0Y-t3V" id="iga-PY-bvd"/>
                         <outlet property="titleLabel" destination="ZTJ-6M-oUU" id="cBN-Px-X0O"/>
                     </connections>
                 </viewController>

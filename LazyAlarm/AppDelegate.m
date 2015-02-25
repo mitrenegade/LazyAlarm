@@ -28,7 +28,14 @@
     }
 
     [Fabric with:@[CrashlyticsKit]];
-    
+
+    // Initialize Parse.
+    [Parse setApplicationId:@"IoYZSeKrVsNokXRUVRomGxVeHMMvmfOY464ICMEM"
+                  clientKey:@"KsP4d8G2StCHv64lNrLI7QDydRmBWgisbp0NcXoP"];
+
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     return YES;
 }
 
