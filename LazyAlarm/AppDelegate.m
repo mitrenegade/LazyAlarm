@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MainViewController.h"
-
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import "Appirater.h"
 
 @implementation AppDelegate
@@ -25,6 +26,8 @@
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
+
+    [Fabric with:@[CrashlyticsKit]];
     
     return YES;
 }

@@ -19,6 +19,8 @@
 		9E0C9B9714ECB5CA00FF4C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C9B6F14ECB5CA00FF4C8D /* Foundation.framework */; };
 		9E0C9B9F14ECB5CA00FF4C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */; };
 		9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */; };
+		9E1314BF1A9E4F500051922A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BD1A9E4F500051922A /* Crashlytics.framework */; };
+		9E1314C01A9E4F500051922A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BE1A9E4F500051922A /* Fabric.framework */; };
 		9E24AC2E1597CF28007C3F3F /* btn_share_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */; };
 		9E24AC2F1597CF28007C3F3F /* btn_share_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */; };
 		9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3115981B2A007C3F3F /* 014_switch_off.png */; };
@@ -68,6 +70,8 @@
 		9E0C9B9E14ECB5CA00FF4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E0C9BA014ECB5CA00FF4C8D /* LazyAlarmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LazyAlarmTests.h; sourceTree = "<group>"; };
 		9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyAlarmTests.m; sourceTree = "<group>"; };
+		9E1314BD1A9E4F500051922A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		9E1314BE1A9E4F500051922A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_off@2x.png"; sourceTree = "<group>"; };
 		9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_on@2x.png"; sourceTree = "<group>"; };
 		9E24AC3115981B2A007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
@@ -96,9 +100,11 @@
 				9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */,
 				9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */,
 				9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */,
+				9E1314C01A9E4F500051922A /* Fabric.framework in Frameworks */,
 				9E0C9B6E14ECB5CA00FF4C8D /* UIKit.framework in Frameworks */,
 				9E0C9B7014ECB5CA00FF4C8D /* Foundation.framework in Frameworks */,
 				9E0C9B7214ECB5CA00FF4C8D /* CoreGraphics.framework in Frameworks */,
+				9E1314BF1A9E4F500051922A /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +124,8 @@
 		9E0C9B5E14ECB5CA00FF4C8D = {
 			isa = PBXGroup;
 			children = (
+				9E1314BD1A9E4F500051922A /* Crashlytics.framework */,
+				9E1314BE1A9E4F500051922A /* Fabric.framework */,
 				9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */,
 				9E9E7050159CEF4700EF996F /* CFNetwork.framework */,
 				9EEF43E715993FD700B56A75 /* ZZZ_57.png */,
@@ -224,6 +232,7 @@
 				9E0C9B6514ECB5CA00FF4C8D /* Sources */,
 				9E0C9B6614ECB5CA00FF4C8D /* Frameworks */,
 				9E0C9B6714ECB5CA00FF4C8D /* Resources */,
+				9E1314BC1A9E4F350051922A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -328,6 +337,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		9E1314BC1A9E4F350051922A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 70160b7dec925a91c6fe09e38bf1f8659c1eda41 0fa711cea5cca0c6a4b57c1a8955f0518514bfdd7a9e6f28b3eca2c60d905a9c";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -459,6 +481,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
@@ -476,6 +502,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LazyAlarm/LazyAlarm-Prefix.pch";
 				INFOPLIST_FILE = "LazyAlarm/LazyAlarm-Info.plist";
