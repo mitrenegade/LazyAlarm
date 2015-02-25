@@ -145,6 +145,18 @@
         date = [NSDate dateWithTimeInterval:3600*24 sinceDate:date];
     }
 
+    int minutes = arc4random()%60;
+    if (bIsLazy) {
+        // set random time after lazy date, but after now
+        date = [date dateByAddingTimeInterval:minutes*60];
+    }
+    else {
+        // set random time before normal alarm, but after now
+        NSDate *newDate = [date dateByAddingTimeInterval:-minutes*60];
+        if ([newDate timeIntervalSinceNow] > 0)
+            date = newDate;
+    }
+
     notif1.fireDate = date;
     //notif1.soundName = UILocalNotificationDefaultSoundName;
     notif1.alertBody = @"Alarm";
