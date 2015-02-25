@@ -34,6 +34,9 @@
     if (!TESTING) {
         [labelDebug setHidden:YES];
     }
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setAlarm:)];
+    [self.view addGestureRecognizer:tap];
 }
 - (void)viewDidUnload
 {
@@ -217,7 +220,7 @@
         AlarmOptions options = [[_defaults objectForKey:kKeyNormalAlarmOptions] intValue];
         [lazySwitch setBackgroundImage:[UIImage imageNamed:@"014_switch_off.png"] forState:UIControlStateNormal];
         if (normalAlarm && options != AlarmOptionsOff) {
-            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"No! You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
+            [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmSetMessage", nil, nil,@"You are being punctual and getting up bright and early!", @"Nonlazy alarm set message")];
         }
         else {
             [detailLabel setText:ConfiguredAttributeWithDefaultValue(@"NonlazyAlarmNotSetMessage", nil, nil,@"No alarm currently set!", @"Nonlazy alarm not set message")];
@@ -246,6 +249,12 @@
     else {
         [self setAlarmAtDate:lazyAlarm];
     }
+}
+
+-(void)setAlarm:(UIGestureRecognizer *)gesture {
+    CGPoint point = [gesture locationInView:self.view];
+    if (CGRectContainsPoint(detailLabel.frame, point))
+        [self performSegueWithIdentifier:@"FlipSegue" sender:nil];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

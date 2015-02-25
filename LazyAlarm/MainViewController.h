@@ -25,7 +25,7 @@
 }
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
-- (IBAction)showInfo:(id)sender;
+- (IBAction)setAlarm:(id)sender;
 - (IBAction)didClickSwitch:(id)sender;
 -(void)checkOrientation:(UIInterfaceOrientation)interfaceOrientation;
 -(void)autoUpdateAlarm:(NSString*)alarmType;
