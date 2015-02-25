@@ -11,16 +11,16 @@
 @class FlipsideViewController;
 
 @protocol FlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate*)alarm;
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate*)alarm options:(float)options;
 @end
 
 @interface FlipsideViewController : UIViewController <UIPickerViewDelegate>
 {
     IBOutlet UILabel *labelAlarmState;
-    IBOutlet UISegmentedControl * selector;
     IBOutlet UIDatePicker * timePicker;
-    IBOutlet UISwitch * lazyOnOff;
-    IBOutlet UINavigationItem * navItem;
+
+    IBOutlet UILabel *labelDetails;
+    IBOutlet UISlider *sliderOptions;
 }
 @property (weak, nonatomic) IBOutlet id <FlipsideViewControllerDelegate> delegate;
 @property (nonatomic) BOOL isEditingLazyAlarm;
@@ -28,5 +28,6 @@
 
 - (IBAction)done:(id)sender;
 - (IBAction)didSwitchAlarm:(id)sender;
-- (IBAction)didToggleLazyAlarm:(id)sender;
+- (IBAction)didChangeSlider:(id)sender;
+
 @end

@@ -49,6 +49,7 @@
     }
 
     [self updateAlarmTitle];
+    [self updateSliderTitle];
 }
 
 -(void)updateAlarmTitle {
@@ -63,6 +64,41 @@
     else {
         [labelAlarmState setText:(currentAlarm?[NSString stringWithFormat:@"Lazy alarm set after: %@", dateString]:@"Not set")];
     }
+}
+
+-(void)updateSliderTitle {
+    if (self.isEditingLazyAlarm) {
+        if (sliderOptions.value < 1) {
+            labelDetails.text = @"Alarm off";
+        }
+        else if (sliderOptions.value < 2) {
+            labelDetails.text = @"Wake me at exactly:";
+        }
+        else if (sliderOptions.value < 3) {
+            labelDetails.text = @"Wake me little after:";
+        }
+        else {
+            labelDetails.text = @"Wake me way after:";
+        }
+    }
+    else {
+        if (sliderOptions.value < 1) {
+            labelDetails.text = @"Alarm off";
+        }
+        else if (sliderOptions.value < 2) {
+            labelDetails.text = @"Wake me at exactly:";
+        }
+        else if (sliderOptions.value < 3) {
+            labelDetails.text = @"Wake me little before:";
+        }
+        else {
+            labelDetails.text = @"Wake me way before:";
+        }
+    }
+}
+
+-(IBAction)didChangeSlider:(id)sender {
+    [self updateSliderTitle];
 }
 
 - (void)viewDidUnload
@@ -85,7 +121,7 @@
     comps.minute = picked.minute;
     NSDate *date = [cal dateFromComponents:comps];
 
-    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date];
+    [self.delegate flipsideViewControllerDidFinish:self withAlarm:date options:sliderOptions.value];
 }
 
 @end

@@ -28,8 +28,8 @@
     bIsLazy = [[[NSUserDefaults standardUserDefaults] objectForKey:kKeyAlarmMode] boolValue];
 
     [self alarmFromDefaults];
-
     [self setSwitchToLazy:bIsLazy];
+    [self setAlarmAtDate:bIsLazy?lazyAlarm:normalAlarm];
 
     if (!TESTING) {
         [labelDebug setHidden:YES];
@@ -111,7 +111,7 @@
 
 #pragma mark - Flipside View Controller
 
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate *)alarm
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller withAlarm:(NSDate *)alarm options:(float)options
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 
