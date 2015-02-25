@@ -21,13 +21,13 @@
 		9E0C9BA214ECB5CA00FF4C8D /* LazyAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */; };
 		9E1314BF1A9E4F500051922A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BD1A9E4F500051922A /* Crashlytics.framework */; };
 		9E1314C01A9E4F500051922A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1314BE1A9E4F500051922A /* Fabric.framework */; };
+		9E1314C31A9E509A0051922A /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1314C21A9E509A0051922A /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9E24AC2E1597CF28007C3F3F /* btn_share_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */; };
 		9E24AC2F1597CF28007C3F3F /* btn_share_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */; };
 		9E24AC3315981B2B007C3F3F /* 014_switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3115981B2A007C3F3F /* 014_switch_off.png */; };
 		9E24AC3415981B2B007C3F3F /* 014_switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3215981B2B007C3F3F /* 014_switch_on.png */; };
 		9E24AC3615981E93007C3F3F /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E24AC3515981E92007C3F3F /* alarm.wav */; };
 		9E24AC3815981ED3007C3F3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */; };
-		9E9E704F159CEDF500EF996F /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E704E159CEDF500EF996F /* Appirater.m */; };
 		9E9E7051159CEF4700EF996F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7050159CEF4700EF996F /* CFNetwork.framework */; };
 		9E9E7053159CEF4F00EF996F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */; };
 		9ECB456E1A9CC98D00D5E48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECB456D1A9CC98D00D5E48C /* Main.storyboard */; };
@@ -72,6 +72,8 @@
 		9E0C9BA114ECB5CA00FF4C8D /* LazyAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyAlarmTests.m; sourceTree = "<group>"; };
 		9E1314BD1A9E4F500051922A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		9E1314BE1A9E4F500051922A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		9E1314C11A9E509A0051922A /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		9E1314C21A9E509A0051922A /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		9E24AC2C1597CF27007C3F3F /* btn_share_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_off@2x.png"; sourceTree = "<group>"; };
 		9E24AC2D1597CF27007C3F3F /* btn_share_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_switch_on@2x.png"; sourceTree = "<group>"; };
 		9E24AC3115981B2A007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		9E24AC3715981ED3007C3F3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9E24AC3915982173007C3F3F /* 014_switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_off.png; sourceTree = "<group>"; };
 		9E24AC3A15982173007C3F3F /* 014_switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 014_switch_on.png; sourceTree = "<group>"; };
-		9E9E704D159CEDF500EF996F /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		9E9E704E159CEDF500EF996F /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		9E9E7050159CEF4700EF996F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9E9E7052159CEF4F00EF996F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9ECB456D1A9CC98D00D5E48C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -161,9 +161,10 @@
 		9E0C9B7314ECB5CA00FF4C8D /* LazyAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				9E1314C11A9E509A0051922A /* Appirater.h */,
+				9E1314C21A9E509A0051922A /* Appirater.m */,
 				9EDD168015BF98070072860A /* AttributeConfigurator.h */,
 				9EDD168115BF98070072860A /* AttributeConfigurator.m */,
-				9E9E704C159CEDF500EF996F /* Appirator */,
 				9E24AC3915982173007C3F3F /* 014_switch_off.png */,
 				9E24AC3A15982173007C3F3F /* 014_switch_on.png */,
 				9E24AC3515981E92007C3F3F /* alarm.wav */,
@@ -211,15 +212,6 @@
 				9E0C9B9D14ECB5CA00FF4C8D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9E9E704C159CEDF500EF996F /* Appirator */ = {
-			isa = PBXGroup;
-			children = (
-				9E9E704D159CEDF500EF996F /* Appirater.h */,
-				9E9E704E159CEDF500EF996F /* Appirater.m */,
-			);
-			path = Appirator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,12 +350,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1314C31A9E509A0051922A /* Appirater.m in Sources */,
 				9EDD168D15C08FAB0072860A /* AttributeConfigurator.m in Sources */,
 				9E0C9B7A14ECB5CA00FF4C8D /* main.m in Sources */,
 				9E0C9B7E14ECB5CA00FF4C8D /* AppDelegate.m in Sources */,
 				9E0C9B8114ECB5CA00FF4C8D /* MainViewController.m in Sources */,
 				9E0C9B8414ECB5CA00FF4C8D /* FlipsideViewController.m in Sources */,
-				9E9E704F159CEDF500EF996F /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

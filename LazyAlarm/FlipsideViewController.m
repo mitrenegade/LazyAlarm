@@ -51,7 +51,6 @@
 -(void)updateAlarmTitle {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
-    [Appirater userDidSignificantEvent:YES];
     NSDate *currentAlarm = timePicker.date;
     NSString *dateString = [dateFormatter stringFromDate:currentAlarm];
     if (!self.isEditingLazyAlarm) {
@@ -116,7 +115,10 @@
 
 - (IBAction)done:(id)sender
 {
-    [Appirater userDidSignificantEvent:YES];
+    if (options != AlarmOptionsOff) {
+        [Appirater userDidSignificantEvent:YES];
+    }
+
     NSDate * now = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents * comps = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
