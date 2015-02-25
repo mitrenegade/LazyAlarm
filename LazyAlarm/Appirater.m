@@ -120,6 +120,7 @@ NSString *templateReviewURLiOS8 = @"itms-apps://itunes.apple.com/WebObjects/MZSt
 	[alertView show];
 
     NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
+    [PFAnalytics trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 }
 
 
@@ -361,36 +362,41 @@ NSString *templateReviewURLiOS8 = @"itms-apps://itunes.apple.com/WebObjects/MZSt
 	[userDefaults synchronize];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:reviewURL]];
 
-//    NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
-//    [PFAnalytics trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
+    NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
+    [PFAnalytics trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 #endif
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	
+
+    NSString *option = @"";
 	switch (buttonIndex) {
 		case 0:
 		{
 			// they don't want to rate it
 			[userDefaults setBool:YES forKey:kAppiraterDeclinedToRate];
 			[userDefaults synchronize];
+            option = @"No rating";
 			break;
 		}
 		case 1:
 		{
 			// they want to rate it
 			[Appirater rateApp];
+            option = @"Rate app";
 			break;
 		}
 		case 2:
 			// remind them later
 			[userDefaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:kAppiraterReminderRequestDate];
 			[userDefaults synchronize];
+            option = @"Rate later";
 			break;
 		default:
 			break;
 	}
+    [PFAnalytics trackEventInBackground:@"Appirater_selection" dimensions:@{@"option":option} block:nil];
 }
 
 @end
